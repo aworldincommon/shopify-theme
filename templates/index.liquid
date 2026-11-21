@@ -1,201 +1,128 @@
-{%- comment -%} Visually-hidden page heading keeps the homepage's h1 contract while its regions provide the visible composition. {%- endcomment -%}
-<h1 class="sr-only">{{ shop.name }}</h1>
-
 {%- liquid
   assign first_product = collections.all.products.first
-  assign shop_url = routes.all_products_collection_url
-  if first_product
-    assign shop_url = first_product.url
-  endif
   assign ledger_url = pages['transparency-ledger'].url | default: routes.root_url
 -%}
 
-{%- comment -%} Type-led hero: the statement is the image, so no stock photography competes with it. {%- endcomment -%}
-{% block 'container', class: 'bg-on-surface text-surface', attributes: 'aria-labelledby="home-hero-heading"' %}
-  <div class="max-w-page mx-auto px-margin pt-16 pb-20 md:pt-28 md:pb-32 flex flex-col gap-8">
-    {% block 'text', tag: 'p', variant: 'sm', class: 'font-mono uppercase tracking-widest text-surface/70' %}
-      {{- 'wic.home.hero_kicker' | t -}}
-    {% endblock %}
+{%- comment -%}
+  Masthead: the shop name is the visible h1, set like a magazine nameplate. One primary action only;
+  it points at the object on this page rather than a product that is not on sale yet.
+{%- endcomment -%}
+{% block 'container', class: 'w-full max-w-page mx-auto px-margin', attributes: 'aria-labelledby="home-masthead"' %}
+  <div class="flex flex-col gap-8 pt-4 pb-16 md:gap-12 md:pb-24">
+    {%- comment -%} Dateline row: a masthead convention that also states the store's real status. {%- endcomment -%}
+    <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 pb-3 border-b-2 border-on-surface">
+      {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest text-army' %}{{ 'wic.home.hero_status_1' | t }}{% endblock %}
+      {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest' %}{{ 'wic.home.hero_kicker' | t }}{% endblock %}
+    </div>
 
-    {% block 'heading', tag: 'h2', variant: '2xl', class: 'max-w-5xl text-5xl md:text-8xl leading-[0.95] tracking-tight text-balance', attributes: 'id="home-hero-heading"' %}
-      {{- 'wic.home.hero_title' | t -}}
-    {% endblock %}
+    {% block 'heading', tag: 'h1', variant: 'xl', class: 'max-w-5xl sm:text-8xl lg:text-9xl leading-[0.85] tracking-tighter', attributes: 'id="home-masthead"' %}{{ shop.name }}{% endblock %}
 
-    <div class="grid gap-8 md:grid-cols-12 md:items-end pt-4 border-t border-surface/25">
-      {% block 'text', variant: 'lg', class: 'md:col-span-7 max-w-prose leading-relaxed text-surface/85' %}
-        {{- 'wic.home.hero_body' | t -}}
-      {% endblock %}
+    {%- comment -%} Asymmetric 3 / 6 / 3 split: the stamp sits in the margin column like a marginal note. {%- endcomment -%}
+    <div class="grid gap-8 pt-6 border-t border-dashed border-on-surface md:grid-cols-12 md:items-end">
+      <div class="md:col-span-3 md:self-start">
+        <div class="inline-block -rotate-3 border-2 border-accent px-3 py-2 text-accent">
+          {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest' %}{{ 'wic.home.hero_stamp' | t }}{% endblock %}
+        </div>
+      </div>
 
-      <div class="md:col-span-5 flex flex-wrap gap-3 md:justify-end">
-        {% block 'button', url: shop_url, variant: 'button-surface', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.hero_cta_shop' | t }}{% endblock %}
-        {% block 'button', url: ledger_url, variant: 'custom', background_color: settings.color_palette.accent, class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.hero_cta_ledger' | t }}{% endblock %}
+      {% block 'text', variant: 'lg', class: 'md:col-span-6 max-w-prose md:text-3xl leading-snug text-balance' %}{{ 'wic.home.hero_lede' | t }}{% endblock %}
+
+      <div class="md:col-span-3 md:justify-self-end">
+        {% block 'button', url: '#object-001', variant: 'button-primary', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.hero_cta' | t }}{% endblock %}
       </div>
     </div>
-
-    {%- comment -%} Receipt-style status line: states what is not ready yet instead of implying a launched store. {%- endcomment -%}
-    <ul role="list" class="flex flex-col gap-x-8 gap-y-2 pt-6 border-t border-dashed border-surface/25 font-mono text-xs uppercase tracking-widest text-surface/70 sm:flex-row sm:flex-wrap">
-      <li>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.home.hero_status_1' | t }}{% endblock %}</li>
-      <li>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.home.hero_status_2' | t }}{% endblock %}</li>
-      <li>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.home.hero_status_3' | t }}{% endblock %}</li>
-    </ul>
-  </div>
-{% endblock %}
-
-{%- comment -%} Commitments as numbered ledger entries: the ol carries the order, so the visible index is decorative. {%- endcomment -%}
-{% block 'container', class: 'max-w-page mx-auto px-margin w-full', attributes: 'aria-labelledby="home-principles-heading"' %}
-  <div class="py-16 md:py-24 flex flex-col gap-10 md:gap-12">
-    <div class="grid gap-6 md:grid-cols-12 md:items-end">
-      {% block 'heading', tag: 'h2', variant: 'xl', class: 'md:col-span-7 text-4xl md:text-6xl leading-none tracking-tight text-balance', attributes: 'id="home-principles-heading"' %}{{ 'wic.home.principles_title' | t }}{% endblock %}
-      {% block 'text', variant: 'lg', class: 'md:col-span-5 max-w-prose leading-relaxed text-on-surface-secondary' %}{{ 'wic.home.principles_body' | t }}{% endblock %}
-    </div>
-
-    <ol role="list" class="grid gap-x-8 border-t-2 border-on-surface md:grid-cols-2 lg:grid-cols-3">
-      <li class="flex flex-col gap-3 py-8 border-b border-dashed border-on-surface/50">
-        <span class="font-mono text-xs tracking-widest text-accent" aria-hidden="true">01</span>
-        {% block 'heading', tag: 'h3', variant: 'sm', class: 'text-2xl leading-tight tracking-tight' %}{{ 'wic.home.principle_1_title' | t }}{% endblock %}
-        {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.principle_1_body' | t }}{% endblock %}
-      </li>
-      <li class="flex flex-col gap-3 py-8 border-b border-dashed border-on-surface/50">
-        <span class="font-mono text-xs tracking-widest text-accent" aria-hidden="true">02</span>
-        {% block 'heading', tag: 'h3', variant: 'sm', class: 'text-2xl leading-tight tracking-tight' %}{{ 'wic.home.principle_2_title' | t }}{% endblock %}
-        {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.principle_2_body' | t }}{% endblock %}
-      </li>
-      <li class="flex flex-col gap-3 py-8 border-b border-dashed border-on-surface/50">
-        <span class="font-mono text-xs tracking-widest text-accent" aria-hidden="true">03</span>
-        {% block 'heading', tag: 'h3', variant: 'sm', class: 'text-2xl leading-tight tracking-tight' %}{{ 'wic.home.principle_3_title' | t }}{% endblock %}
-        {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.principle_3_body' | t }}{% endblock %}
-      </li>
-      <li class="flex flex-col gap-3 py-8 border-b border-dashed border-on-surface/50">
-        <span class="font-mono text-xs tracking-widest text-accent" aria-hidden="true">04</span>
-        {% block 'heading', tag: 'h3', variant: 'sm', class: 'text-2xl leading-tight tracking-tight' %}{{ 'wic.home.principle_4_title' | t }}{% endblock %}
-        {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.principle_4_body' | t }}{% endblock %}
-      </li>
-      <li class="flex flex-col gap-3 py-8 border-b border-dashed border-on-surface/50">
-        <span class="font-mono text-xs tracking-widest text-accent" aria-hidden="true">05</span>
-        {% block 'heading', tag: 'h3', variant: 'sm', class: 'text-2xl leading-tight tracking-tight' %}{{ 'wic.home.principle_5_title' | t }}{% endblock %}
-        {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.principle_5_body' | t }}{% endblock %}
-      </li>
-      <li class="flex flex-col gap-3 py-8 border-b border-dashed border-on-surface/50">
-        <span class="font-mono text-xs tracking-widest text-accent" aria-hidden="true">06</span>
-        {% block 'heading', tag: 'h3', variant: 'sm', class: 'text-2xl leading-tight tracking-tight' %}{{ 'wic.home.principle_6_title' | t }}{% endblock %}
-        {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.principle_6_body' | t }}{% endblock %}
-      </li>
-    </ol>
   </div>
 {% endblock %}
 
 {%- comment -%}
-  First object, staged as an honest receipt. Every value is a placeholder until real costs exist;
-  never render product price or invented specs here. A real product photo replaces the dashed frame once one exists.
+  Object 001, staged as a specimen with its receipt, not a product card. Every receipt value is a placeholder
+  until real costs exist; never render product price or invented specs here. The id is the masthead CTA's anchor.
 {%- endcomment -%}
-{% block 'container', class: 'bg-surface-secondary', attributes: 'id="peoples-cafe" aria-labelledby="home-shirt-heading"' %}
-  <div class="max-w-page mx-auto px-margin py-16 md:py-24 grid gap-10 md:grid-cols-12">
-    <div class="md:col-span-5">
+{% block 'container', class: 'w-full max-w-page mx-auto px-margin scroll-mt-8', attributes: 'id="object-001" aria-labelledby="home-shirt-heading"' %}
+  <div class="grid gap-x-8 gap-y-10 pt-4 pb-16 border-t-2 border-on-surface md:grid-cols-12 md:pb-24">
+    {% block 'text', variant: 'sm', class: 'md:col-span-12 font-mono uppercase tracking-widest text-army' %}{{ 'wic.home.shirt_kicker' | t }}{% endblock %}
+
+    {% block 'heading', tag: 'h2', variant: 'xl', class: 'md:col-span-10 lg:text-8xl leading-[0.9] tracking-tighter text-balance', attributes: 'id="home-shirt-heading"' %}{{ 'wic.home.shirt_title' | t }}{% endblock %}
+
+    <div class="md:col-span-7">
       {%- if first_product.featured_image -%}
-        {% block 'image', fallback_image: first_product.featured_image, aspect_ratio: 'aspect-[4/5]', sizes: '(min-width: 768px) 40vw, 100vw', alt: first_product.title, attributes: 'loading="lazy"' %}{% endblock %}
+        {% block 'image', fallback_image: first_product.featured_image, aspect_ratio: 'aspect-[4/5]', sizes: '(min-width: 768px) 55vw, 100vw', alt: first_product.title, attributes: 'loading="lazy"' %}{% endblock %}
       {%- else -%}
-        <div class="aspect-[4/5] flex flex-col justify-between p-6 border-2 border-dashed border-on-surface/50 bg-surface">
-          <span class="font-mono text-xs uppercase tracking-widest text-on-surface-secondary" aria-hidden="true">001</span>
-          {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest text-on-surface-secondary max-w-xs' %}{{ 'wic.home.shirt_photo_pending' | t }}{% endblock %}
+        {%- comment -%} Honest empty frame until a real photograph exists: no mockups, no stock imagery. {%- endcomment -%}
+        <div class="aspect-[4/5] flex flex-col justify-between p-6 border-2 border-dashed border-on-surface">
+          <span class="font-heading text-8xl leading-none tracking-tighter" aria-hidden="true">001</span>
+          {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest max-w-xs' %}{{ 'wic.home.shirt_photo_pending' | t }}{% endblock %}
         </div>
       {%- endif -%}
     </div>
 
-    <div class="md:col-span-7 flex flex-col gap-6">
-      {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest text-accent' %}{{ 'wic.home.shirt_kicker' | t }}{% endblock %}
-      {% block 'heading', tag: 'h2', variant: 'xl', class: 'text-4xl md:text-6xl leading-none tracking-tight text-balance', attributes: 'id="home-shirt-heading"' %}{{ 'wic.home.shirt_title' | t }}{% endblock %}
+    <div class="flex flex-col gap-8 md:col-span-5 lg:col-span-4 lg:col-start-9 md:self-end">
       {% block 'text', variant: 'lg', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.shirt_body' | t }}{% endblock %}
 
-      <div class="bg-surface border-y-2 border-dashed border-on-surface px-5 py-6 md:px-8 font-mono text-sm max-w-xl">
-        {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest pb-4 mb-2 border-b border-dashed border-on-surface' %}{{ 'wic.home.receipt_head' | t }}{% endblock %}
-        {%- comment -%} Leaders only appear from sm up; on narrow screens label and value stack so long placeholders never collide. {%- endcomment -%}
+      {%- comment -%} Receipt slip: four lines, not a spreadsheet. Leaders appear from sm up so long placeholders never collide. {%- endcomment -%}
+      <div class="bg-surface-secondary border-y-2 border-dashed border-on-surface px-5 py-5">
+        {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest pb-3 border-b border-dashed border-on-surface' %}{{ 'wic.home.receipt_head' | t }}{% endblock %}
         <dl class="flex flex-col divide-y divide-rule">
-          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
+          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-3">
             <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_price' | t }}{% endblock %}</dt>
             <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
             <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_tbd' | t }}{% endblock %}</dd>
           </div>
-          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
-            <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_garment' | t }}{% endblock %}</dt>
+          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-3">
+            <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_cost' | t }}{% endblock %}</dt>
             <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
             <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_pending' | t }}{% endblock %}</dd>
           </div>
-          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
-            <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_printing' | t }}{% endblock %}</dt>
-            <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
-            <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_pending' | t }}{% endblock %}</dd>
-          </div>
-          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
-            <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_shipping' | t }}{% endblock %}</dt>
-            <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
-            <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_pending' | t }}{% endblock %}</dd>
-          </div>
-          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
-            <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_vat' | t }}{% endblock %}</dt>
-            <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
-            <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_pending' | t }}{% endblock %}</dd>
-          </div>
-          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4">
+          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-3">
             <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_contribution' | t }}{% endblock %}</dt>
             <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
             <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_pending' | t }}{% endblock %}</dd>
           </div>
-          <div class="flex flex-col gap-1 py-3 font-bold sm:flex-row sm:items-baseline sm:gap-4">
+          <div class="flex flex-col gap-1 py-3 font-bold sm:flex-row sm:items-baseline sm:gap-3">
             <dt>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono font-bold' %}{{ 'wic.home.receipt_status' | t }}{% endblock %}</dt>
             <span class="hidden sm:flex flex-1 border-b border-dotted border-on-surface/50" aria-hidden="true"></span>
             <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono font-bold' %}{{ 'wic.home.receipt_status_value' | t }}{% endblock %}</dd>
           </div>
         </dl>
-        {% block 'text', variant: 'sm', class: 'font-mono pt-4 mt-2 border-t border-dashed border-on-surface text-on-surface-secondary' %}{{ 'wic.home.receipt_foot' | t }}{% endblock %}
+        {% block 'text', variant: 'sm', class: 'font-mono pt-3 border-t border-dashed border-on-surface' %}{{ 'wic.home.receipt_foot' | t }}{% endblock %}
       </div>
 
-      <div class="flex flex-wrap items-center gap-x-8 gap-y-3">
-        {%- if first_product -%}
-          {% block 'button', url: shop_url, variant: 'button-primary', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.shirt_cta' | t }}{% endblock %}
-        {%- endif -%}
-        {% block 'link', url: ledger_url, class: 'font-mono text-sm uppercase tracking-widest' %}{{ 'wic.home.shirt_ledger_link' | t }}{% endblock %}
-      </div>
+      {%- if first_product -%}
+        {% block 'link', url: first_product.url, class: 'font-mono text-sm uppercase tracking-widest' %}{{ 'wic.home.shirt_cta' | t }}{% endblock %}
+      {%- endif -%}
     </div>
   </div>
 {% endblock %}
 
-{%- comment -%} Topic index styled as a ledger: each subject is a line item, not a feature card. {%- endcomment -%}
-{% block 'container', class: 'max-w-page mx-auto px-margin w-full', attributes: 'aria-labelledby="home-topics-heading"' %}
-  <div class="py-16 md:py-24 grid gap-10 md:grid-cols-12">
-    <div class="md:col-span-4 flex flex-col gap-4">
-      {% block 'heading', tag: 'h2', variant: 'md', class: 'leading-tight tracking-tight', attributes: 'id="home-topics-heading"' %}{{ 'wic.home.topics_title' | t }}{% endblock %}
-      {% block 'text', class: 'max-w-prose text-on-surface-secondary' %}{{ 'wic.home.topics_body' | t }}{% endblock %}
+{%- comment -%} Subjects run together like a cover line, so eight topics read as one statement instead of eight ruled rows. {%- endcomment -%}
+{% block 'container', class: 'w-full max-w-page mx-auto px-margin', attributes: 'aria-labelledby="home-topics-heading"' %}
+  <div class="grid gap-8 pt-4 pb-16 border-t-2 border-on-surface md:grid-cols-12 md:pb-24">
+    <div class="flex flex-col gap-3 md:col-span-3">
+      {% block 'text', tag: 'h2', variant: 'sm', class: 'font-mono uppercase tracking-widest text-army', attributes: 'id="home-topics-heading"' %}{{ 'wic.home.topics_title' | t }}{% endblock %}
+      {% block 'text', variant: 'sm', class: 'max-w-xs' %}{{ 'wic.home.topics_body' | t }}{% endblock %}
     </div>
-    <ul role="list" class="md:col-span-8 border-t-2 border-on-surface">
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_1' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_2' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_3' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_4' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_5' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_6' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_7' | t }}{% endblock %}</li>
-      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl text-accent' %}{{ 'wic.home.topic_8' | t }}{% endblock %}</li>
+
+    {%- comment -%} role="list" keeps list semantics that Safari drops from inline list items. The red slashes are decorative. {%- endcomment -%}
+    <ul role="list" class="md:col-span-9 leading-tight">
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_1' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_2' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_3' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_4' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_5' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_6' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_7' | t }}{% endblock %}<span class="font-heading text-3xl md:text-5xl text-accent" aria-hidden="true"> / </span></li>
+      <li class="inline">{% block 'heading', tag: 'span', variant: 'sm', class: 'md:text-5xl tracking-tight' %}{{ 'wic.home.topic_8' | t }}{% endblock %}</li>
     </ul>
   </div>
 {% endblock %}
 
-{%- comment -%} Red stamp band pointing at the ledger, the project's core trust mechanism. The page's only red surface. {%- endcomment -%}
-{% block 'container', class: 'bg-accent text-surface', attributes: 'aria-labelledby="home-ledger-heading"' %}
-  <div class="max-w-page mx-auto px-margin py-16 md:py-24 grid gap-8 md:grid-cols-12 md:items-end">
-    {% block 'heading', tag: 'h2', variant: 'xl', class: 'md:col-span-7 text-5xl md:text-6xl leading-none tracking-tight text-balance', attributes: 'id="home-ledger-heading"' %}{{ 'wic.home.ledger_title' | t }}{% endblock %}
-    <div class="md:col-span-5 flex flex-col gap-6">
-      {% block 'text', variant: 'lg', class: 'leading-relaxed' %}{{ 'wic.home.ledger_body' | t }}{% endblock %}
-      <div>
-        {% block 'button', url: ledger_url, variant: 'button-surface', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.ledger_cta' | t }}{% endblock %}
-      </div>
+{%- comment -%} The only full-bleed band: black ink, closing the page on the ledger, the project's core trust mechanism. {%- endcomment -%}
+{% block 'container', class: 'bg-on-surface text-surface', attributes: 'aria-labelledby="home-ledger-heading"' %}
+  <div class="max-w-page mx-auto px-margin py-16 md:py-24 grid gap-10 md:grid-cols-12 md:items-end">
+    {% block 'heading', tag: 'h2', variant: 'xl', class: 'md:col-span-8 lg:text-8xl leading-[0.9] tracking-tighter text-balance', attributes: 'id="home-ledger-heading"' %}{{ 'wic.home.ledger_title' | t }}{% endblock %}
+    <div class="flex flex-col items-start gap-6 md:col-span-4">
+      {% block 'text', variant: 'lg', class: 'max-w-prose leading-relaxed text-surface/80' %}{{ 'wic.home.ledger_lede' | t }}{% endblock %}
+      {% block 'button', url: ledger_url, variant: 'button-surface', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.ledger_cta' | t }}{% endblock %}
     </div>
-  </div>
-{% endblock %}
-
-{%- comment -%} Army green is reserved for this single closing band so it stays punctuation, not a theme color. {%- endcomment -%}
-{% block 'container', class: 'bg-army text-surface', attributes: 'aria-labelledby="home-closing-heading"' %}
-  <div class="max-w-page mx-auto px-margin py-16 md:py-24 flex flex-col gap-6">
-    {% block 'heading', tag: 'h2', variant: 'xl', class: 'max-w-4xl text-4xl md:text-6xl leading-none tracking-tight text-balance', attributes: 'id="home-closing-heading"' %}{{ 'wic.home.closing_title' | t }}{% endblock %}
-    {% block 'text', variant: 'lg', class: 'max-w-prose leading-relaxed text-surface/85' %}{{ 'wic.home.closing' | t }}{% endblock %}
   </div>
 {% endblock %}
