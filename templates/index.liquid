@@ -1,0 +1,123 @@
+{%- comment -%} Visually-hidden page heading keeps the homepage's h1 contract while its regions provide the visible composition. {%- endcomment -%}
+<h1 class="sr-only">{{ shop.name }}</h1>
+
+{%- liquid
+  assign first_product = collections.all.products.first
+  assign shop_url = routes.all_products_collection_url
+  if first_product
+    assign shop_url = first_product.url
+  endif
+  assign ledger_url = pages['transparency-ledger'].url | default: routes.root_url
+-%}
+
+{%- comment -%} Type-led hero: the statement is the image, so no stock photography competes with it. {%- endcomment -%}
+{% block 'container', class: 'bg-on-surface text-surface', attributes: 'aria-labelledby="home-hero-heading"' %}
+  <div class="max-w-page mx-auto px-margin pt-16 pb-20 md:pt-28 md:pb-32 flex flex-col gap-8">
+    {% block 'text', tag: 'p', variant: 'sm', class: 'font-mono uppercase tracking-widest text-surface/70' %}
+      {{- 'wic.home.hero_kicker' | t -}}
+    {% endblock %}
+
+    {% block 'heading', tag: 'h2', variant: '2xl', class: 'max-w-5xl text-5xl md:text-8xl leading-[0.95] tracking-tight text-balance', attributes: 'id="home-hero-heading"' %}
+      {{- 'wic.home.hero_title' | t -}}
+    {% endblock %}
+
+    <div class="grid gap-8 md:grid-cols-12 md:items-end pt-4 border-t border-surface/25">
+      {% block 'text', variant: 'lg', class: 'md:col-span-7 max-w-prose leading-relaxed text-surface/85' %}
+        {{- 'wic.home.hero_body' | t -}}
+      {% endblock %}
+
+      <div class="md:col-span-5 flex flex-wrap gap-3 md:justify-end">
+        {% block 'button', url: shop_url, variant: 'button-surface', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.hero_cta_shop' | t }}{% endblock %}
+        {% block 'button', url: ledger_url, variant: 'custom', background_color: settings.color_palette.accent, class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.hero_cta_ledger' | t }}{% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{%- comment -%} First product, staged as a receipt: the brand's transparency promise made visible before any price exists. {%- endcomment -%}
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full', attributes: 'aria-labelledby="home-product-heading"' %}
+  <div class="py-16 md:py-24 grid gap-10 md:grid-cols-12 md:items-center">
+    <div class="md:col-span-6">
+      {%- if first_product -%}
+        <a href="{{ first_product.url }}" class="block">
+          {% block 'image', fallback_image: first_product.featured_image, aspect_ratio: 'aspect-[4/5]', sizes: '(min-width: 768px) 50vw, 100vw', alt: first_product.title, seed: 3 %}{% endblock %}
+        </a>
+      {%- else -%}
+        {% block 'image', aspect_ratio: 'aspect-[4/5]', sizes: '(min-width: 768px) 50vw, 100vw', seed: 3 %}{% endblock %}
+      {%- endif -%}
+    </div>
+
+    <div class="md:col-span-6 flex flex-col gap-6">
+      {% block 'heading', tag: 'h2', variant: 'xl', class: 'text-5xl md:text-6xl leading-none tracking-tight', attributes: 'id="home-product-heading"' %}
+        {{- 'wic.home.product_title' | t -}}
+      {% endblock %}
+      {% block 'text', variant: 'lg', class: 'max-w-prose leading-relaxed' %}{{ 'wic.home.product_body' | t }}{% endblock %}
+
+      <div class="bg-surface-secondary border-y-2 border-dashed border-on-surface px-5 py-6 font-mono text-sm max-w-md">
+        {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest pb-4 mb-4 border-b border-dashed border-on-surface' %}{{ 'wic.home.receipt_head' | t }}{% endblock %}
+        <dl class="flex flex-col gap-3">
+          {%- for i in (1..6) -%}
+            <div class="flex items-baseline gap-2">
+              <dt class="shrink-0">
+                {%- case i -%}
+                  {%- when 1 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_item' | t }}{% endblock %}
+                  {%- when 2 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_price' | t }}{% endblock %}
+                  {%- when 3 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_cost' | t }}{% endblock %}
+                  {%- when 4 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_shipping' | t }}{% endblock %}
+                  {%- when 5 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_vat' | t }}{% endblock %}
+                  {%- else -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.home.receipt_contribution' | t }}{% endblock %}
+                {%- endcase -%}
+              </dt>
+              <span class="flex-1 border-b border-dotted border-on-surface/50 translate-y-[-0.25em]" aria-hidden="true"></span>
+              <dd>{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.home.receipt_tbd' | t }}{% endblock %}</dd>
+            </div>
+          {%- endfor -%}
+        </dl>
+        {% block 'text', variant: 'sm', class: 'font-mono pt-4 mt-4 border-t border-dashed border-on-surface text-on-surface-secondary' %}{{ 'wic.home.receipt_foot' | t }}{% endblock %}
+      </div>
+
+      <div>
+        {% block 'button', url: shop_url, variant: 'button-primary', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.product_cta' | t }}{% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{%- comment -%} Topic index styled as a ledger: each subject is a line item, not a feature card. {%- endcomment -%}
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full', attributes: 'aria-labelledby="home-topics-heading"' %}
+  <div class="py-16 md:py-24 border-t-2 border-on-surface grid gap-10 md:grid-cols-12">
+    <div class="md:col-span-4 flex flex-col gap-4">
+      {% block 'heading', tag: 'h2', variant: 'md', class: 'leading-tight tracking-tight', attributes: 'id="home-topics-heading"' %}{{ 'wic.home.topics_title' | t }}{% endblock %}
+      {% block 'text', class: 'max-w-prose text-on-surface-secondary' %}{{ 'wic.home.topics_body' | t }}{% endblock %}
+    </div>
+    <ul role="list" class="md:col-span-8 border-t border-rule">
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_1' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_2' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_3' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_4' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_5' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_6' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl' %}{{ 'wic.home.topic_7' | t }}{% endblock %}</li>
+      <li class="border-b border-rule py-4">{% block 'text', tag: 'span', variant: 'lg', class: 'font-heading text-xl md:text-2xl text-accent' %}{{ 'wic.home.topic_8' | t }}{% endblock %}</li>
+    </ul>
+  </div>
+{% endblock %}
+
+{%- comment -%} Red stamp band pointing at the ledger, the project's core trust mechanism. {%- endcomment -%}
+{% block 'container', class: 'bg-accent text-surface', attributes: 'aria-labelledby="home-ledger-heading"' %}
+  <div class="max-w-page mx-auto px-margin py-16 md:py-24 grid gap-8 md:grid-cols-12 md:items-end">
+    {% block 'heading', tag: 'h2', variant: 'xl', class: 'md:col-span-7 text-5xl md:text-6xl leading-none tracking-tight text-balance', attributes: 'id="home-ledger-heading"' %}{{ 'wic.home.ledger_title' | t }}{% endblock %}
+    <div class="md:col-span-5 flex flex-col gap-6">
+      {% block 'text', variant: 'lg', class: 'leading-relaxed' %}{{ 'wic.home.ledger_body' | t }}{% endblock %}
+      <div>
+        {% block 'button', url: ledger_url, variant: 'button-surface', class: 'h-12 px-6 text-sm rounded-button' %}{{ 'wic.home.ledger_cta' | t }}{% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full' %}
+  <div class="py-16 md:py-24">
+    {% block 'text', tag: 'p', variant: 'lg', class: 'font-heading text-3xl md:text-5xl leading-tight tracking-tight max-w-4xl text-army text-balance' %}{{ 'wic.home.closing' | t }}{% endblock %}
+  </div>
+{% endblock %}

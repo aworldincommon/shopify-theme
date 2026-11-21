@@ -1,0 +1,372 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "404": {
+    "title": "404",
+    "title_accessible": "404 — Page not found",
+    "not_found": "Page not found.",
+    "back_to_shopping": "Explore the collection",
+    "suggestions_heading": "A different way forward.",
+    "recovery_body": "This page couldn’t be found. There’s still plenty to discover."
+  },
+  "general": {
+    "skip_to_content": "Skip to content",
+    "play_video": "Play video",
+    "video_player": "Video player",
+    "captions": "Captions",
+    "clear": "Clear",
+    "back": "Back",
+    "close": "Close",
+    "dismiss": "Dismiss",
+    "drawer": "Drawer",
+    "placeholder_image": "Placeholder image",
+    "account": "Account",
+    "search": "Search",
+    "pagination": {
+      "label": "Pagination",
+      "previous_page": "Previous page",
+      "next_page": "Next page",
+      "page": "Page {{ number }}",
+      "current_page": "Page {{ number }}, current page"
+    },
+    "meta": {
+      "tagged": "tagged \"{{ tags }}\"",
+      "page": "Page {{ number }}"
+    }
+  },
+  "accessibility": {
+    "results_updated": "Results updated",
+    "variant_updated": "Selection updated",
+    "update_error": "An error occurred. Please try again."
+  },
+  "blog": {
+    "articles_heading": "Articles",
+    "article_metadata_html": "<time datetime=\"{{ datetime }}\">{{ date }}</time> · {{ author }}",
+    "article_metadata_no_author_html": "<time datetime=\"{{ datetime }}\">{{ date }}</time>",
+    "comment_form_body": "Comment",
+    "comment_form_email": "Email",
+    "comment_form_name": "Name",
+    "comment_form_submit": "Post",
+    "comment_form_title": "Add a comment",
+    "comments_count": {
+      "one": "1 comment",
+      "other": "{{ count }} comments"
+    },
+    "no_articles": "No articles yet."
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "title": "Cart",
+    "remove": "Remove: {{ title }}",
+    "empty": "Your cart is empty.",
+    "empty_description": "Looks like you haven't added anything to your cart yet.",
+    "icon_label": {
+      "one": "Cart (1 item)",
+      "other": "Cart ({{ count }} items)"
+    },
+    "item_count": {
+      "one": "1 item in cart",
+      "other": "{{ count }} items in cart"
+    },
+    "item_removed": "Item removed from cart",
+    "updated": "Cart updated",
+    "note_label": "Order notes",
+    "note_placeholder": "Add special instructions for your order",
+    "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
+    "discount_list": "Applied discounts",
+    "discount_savings": "(-{{ amount }})",
+    "discount_code": "Discount code",
+    "discount_title": "Discount: {{ title }}",
+    "update_error": "Could not update cart. Please try again.",
+    "refresh_error": "Cart updated, but the display may be out of date. Refresh the page to see the latest cart.",
+    "continue_shopping": "Continue shopping",
+    "checkout_description": "Proceeds to secure checkout",
+    "discount_placeholder": "Enter code",
+    "discount_apply": "Apply",
+    "note_accordion_label": "Special instructions",
+    "total_label": "Estimated total"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "message": "Message",
+    "submit": "Send message",
+    "success": "Thank you for reaching out. We'll be in touch soon."
+  },
+  "collections": {
+    "all_collections": "All collections",
+    "browse_heading": "Browse collections",
+    "products_heading": "Products",
+    "placeholder_title": "Collection title",
+    "no_collections": "No collections found.",
+    "no_products": "No products found.",
+    "products_count": {
+      "one": "1 product",
+      "other": "{{ count }} products"
+    },
+    "filter": "Filter",
+    "filters": "Filters",
+    "active_filters": "Active filters",
+    "clear_all": "Clear all",
+    "remove_filter": "Remove {{ filter }}",
+    "show_results": "Show results",
+    "value_unavailable": "Unavailable",
+    "price_min": "Min price",
+    "price_max": "Max price",
+    "price_to": "to",
+    "sort_by": "Sort by",
+    "filtering": {
+      "show_more": "Show more"
+    },
+    "view_all": "View all"
+  },
+  "header": {
+    "menu": "Menu",
+    "mobile_navigation": "Mobile navigation",
+    "navigation": "Main navigation",
+    "show_submenu": "Show submenu for {{ title }}"
+  },
+  "footer": {
+    "quick_links": "Quick links",
+    "policies": "Policies"
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Add to Apple Wallet",
+    "card": "Gift card",
+    "expired": "This gift card has expired",
+    "expires_on": "Expires on {{ expires_on }}",
+    "use_at_checkout": "Use this gift card at checkout",
+    "a_gift_for_you": "A gift for you",
+    "available": "{{ amount }} available",
+    "a_little_something": "A little something for you",
+    "card_label": "{{ shop }} gift card",
+    "copy_code": "Copy code",
+    "copied": "Code copied",
+    "copy_error": "Couldn’t copy automatically. Copy the code manually.",
+    "disabled": "This gift card is no longer valid",
+    "start_shopping": "Start shopping"
+  },
+  "page": {
+    "content_heading": "Page content"
+  },
+  "password": {
+    "title": "This shop is private",
+    "eyebrow": "Opening soon",
+    "launch_description": "Get an early look at what's next.",
+    "enter": "Enter",
+    "enter_with_password": "Enter with password",
+    "enter_store": "Enter store",
+    "show": "Show",
+    "hide": "Hide",
+    "error": "Incorrect password. Please try again.",
+    "field_label": "Password",
+    "placeholder": "Enter password",
+    "get_updates": "Get opening updates",
+    "updates_description": "Be the first to know when we open.",
+    "updates_submit": "Notify me",
+    "updates_success": "Thanks for subscribing."
+  },
+  "product": {
+    "details": "Product details",
+    "placeholder_title": "Product title",
+    "quantity": "Quantity",
+    "quantity_decrease": "Decrease quantity: {{ title }}",
+    "quantity_increase": "Increase quantity: {{ title }}",
+    "quantity_input": "Quantity for {{ title }}",
+    "add_to_cart": "Add to cart",
+    "added_to_cart": "Added to cart",
+    "sold_out": "Sold out",
+    "description": "Description",
+    "view_image": "View image: {{ title }}",
+    "image_zoom": "Expanded product image"
+  },
+  "products": {
+    "price": {
+      "price": "Price",
+      "price_range_html": "{{ min }} – {{ max }}",
+      "price_range_label": "Price range",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "savings": "Save {{ amount }}"
+    },
+    "quantity": {
+      "decrease": "Decrease quantity",
+      "increase": "Increase quantity",
+      "input_label": "Quantity"
+    }
+  },
+  "filters": {
+    "active_count": {
+      "one": "1 active filter",
+      "other": "{{ count }} active filters"
+    }
+  },
+  "forms": {
+    "required": "required",
+    "form_errors_title": "Please fix the following errors:"
+  },
+  "search": {
+    "title": "Search",
+    "label": "Search",
+    "placeholder": "Search",
+    "products_heading": "Products",
+    "results_heading": "Search results",
+    "view_all_results": "View all results",
+    "results_count_announcement": {
+      "one": "1 result available",
+      "other": "{{ count }} results available"
+    },
+    "no_results_announcement": "No results found for {{ terms }}",
+    "results_for": "{{ count }} results found for {{ terms }}",
+    "no_results": "No results found for {{ terms }}",
+    "live_results_announcement": {
+      "one": "{{ count }} result found for {{ terms }}",
+      "other": "{{ count }} results found for {{ terms }}"
+    },
+    "live_no_results_announcement": "No results found for {{ terms }}"
+  },
+  "localization": {
+    "form_label": "Region and language",
+    "language": "Language",
+    "country_region_currency": "Country/region and currency",
+    "update_language": "Update"
+  },
+  "home": {
+    "hero": {
+      "title": "New arrivals",
+      "subtitle": "Explore the collection"
+    }
+  },
+  "wic": {
+    "strip": "Draft storefront. Not open for orders yet.",
+    "home": {
+      "hero_kicker": "Away from systems that isolate and extract.",
+      "hero_title": "World in Common is a project about building systems that help people belong.",
+      "hero_body": "We are interested in money, community, work, culture, and the ordinary ways people can build a life together. We use media, products, research, and practical experiments to explore alternatives to systems that isolate and extract.",
+      "hero_cta_shop": "See the first shirt",
+      "hero_cta_ledger": "Read the ledger",
+      "product_title": "The first shirt.",
+      "product_body": "Our first object. Before it goes on sale, every line of this receipt gets a real number. Until then, it says so.",
+      "product_cta": "Go to the shop",
+      "receipt_head": "Receipt / item 001",
+      "receipt_item": "Product name",
+      "receipt_price": "Price",
+      "receipt_cost": "Production cost",
+      "receipt_shipping": "Shipping",
+      "receipt_vat": "VAT",
+      "receipt_contribution": "Contribution to the project",
+      "receipt_tbd": "TBD",
+      "receipt_foot": "No numbers until they are real numbers.",
+      "topics_title": "What we are looking at",
+      "topics_body": "Less complaining about the machine. More notes on how to build a better one.",
+      "topic_1": "Community and belonging",
+      "topic_2": "Human-scale living",
+      "topic_3": "Alternative economic systems",
+      "topic_4": "The social effects of money and inflation",
+      "topic_5": "Meaningful work and purpose",
+      "topic_6": "Global solidarity",
+      "topic_7": "Human rights and overlooked problems in Latin America, Africa, and elsewhere",
+      "topic_8": "Practical ways to build better systems instead of only criticizing existing ones",
+      "ledger_title": "Every cost, published from day zero.",
+      "ledger_body": "We publish the costs behind the project because transparency is part of the project itself. We will show what things cost, what we charge, and how many products we need to sell to keep the work alive.",
+      "ledger_cta": "Open the ledger",
+      "closing": "Returning to human-scale life while building a different system."
+    },
+    "about": {
+      "title": "About",
+      "lede": "We are turning away from systems that isolate and extract, and toward systems that help people belong.",
+      "principle": "We are not waiting for a perfect system to arrive. We are interested in the small systems people can build together: cafés, communities, shared resources, meaningful work, local economies, and better forms of belonging.",
+      "secondary": "Returning to human-scale life while building a different system.",
+      "how_title": "How we work",
+      "how_body": "Media, products, research, and practical experiments. Some will work. We will tell you about the ones that do not."
+    },
+    "ledger": {
+      "title": "Transparency & Ledger",
+      "intro": "We publish the costs behind the project because transparency is part of the project itself. We will show what things cost, what we charge, and how many products we need to sell to keep the work alive.",
+      "surplus": "Any surplus remains in the project. It supports future products, research, media, community work, and the basic costs of keeping World in Common alive. We will not pretend that a mission removes the need for money.",
+      "scope_title": "What gets recorded, from day zero",
+      "scope_1": "Domain and software",
+      "scope_2": "Shopify and other subscriptions",
+      "scope_3": "Product samples",
+      "scope_4": "Garments and printing",
+      "scope_5": "Packaging",
+      "scope_6": "Shipping",
+      "scope_7": "Advertising",
+      "scope_8": "Design and production tools",
+      "scope_9": "Events and other project expenses",
+      "table_title": "The ledger",
+      "table_note": "Entries are added as real receipts come in. Nothing here is estimated.",
+      "col_date": "Date",
+      "col_category": "Category",
+      "col_description": "Description",
+      "col_vendor": "Vendor",
+      "col_net": "Amount before VAT",
+      "col_vat": "VAT",
+      "col_total": "Total",
+      "col_method": "Payment method",
+      "col_receipt": "Receipt or source",
+      "col_notes": "Notes",
+      "empty": "No entries yet. The first real receipt goes here.",
+      "shirts_title": "How many shirts keep us alive?",
+      "shirts_body": "These values stay empty until real costs are entered. We will not calculate them before then.",
+      "shirts_fixed": "Monthly fixed costs",
+      "shirts_direct": "Direct cost per shirt",
+      "shirts_fees": "Payment fees",
+      "shirts_vat": "VAT",
+      "shirts_shipping": "Shipping or fulfilment costs",
+      "shirts_contribution": "Contribution per shirt",
+      "shirts_needed": "Number of shirts needed per month",
+      "shirts_pending": "Awaiting real costs",
+      "shirts_method": "Once the numbers are real: contribution per shirt is the price, minus the direct cost, payment fees, VAT, and shipping. Shirts needed per month is the monthly fixed costs divided by that contribution."
+    },
+    "ai": {
+      "title": "How We Use AI",
+      "intro": "Some of the videos, images, writing, and other content on this site and in our channels are made with generative AI. We say so up front.",
+      "principle": "AI is powerful, imperfect, and potentially harmful. We disclose its use because transparency matters, and we are trying to use these tools to increase awareness and support better ways of living together.",
+      "harms_title": "What worries us",
+      "harms_body": "AI can damage the social fabric, concentrate power in very few hands, replace human work, and flood the public sphere with synthetic information. These are not side notes. They are the reason we disclose.",
+      "social_title": "We have seen this movie before",
+      "social_body": "Social media has had similar contradictions. It has increased polarization and outrage. It has also helped people discover problems, organize, and share knowledge. Both things are true at the same time.",
+      "statement": "A tool can be used for harm or for good. We are trying to use this one for good—openly, critically, and without pretending it is harmless.",
+      "note_title": "A note on evidence",
+      "note_body": "AI-generated images and videos are not documentary evidence. Factual claims should be checked and sourced."
+    },
+    "contact": {
+      "intro": "Questions, ideas, collaborations, corrections, or a café that wants to host something. Write to us.",
+      "details_title": "Contact details",
+      "email_label": "Email",
+      "email_value": "[Add contact email]",
+      "social_label": "Social",
+      "social_value": "[Add social accounts]",
+      "location_label": "Based in",
+      "location_value": "[Add city or region]"
+    },
+    "product": {
+      "receipt_title": "The receipt",
+      "garment": "Garment details",
+      "printing": "Printing method",
+      "cost": "Production cost",
+      "shipping": "Shipping",
+      "vat": "VAT",
+      "contribution": "Contribution to the project",
+      "pending": "[To be confirmed]",
+      "note": "We publish the real numbers here before this shirt goes on sale."
+    },
+    "shop": {
+      "intro": "Objects that pay for the work. Every cost behind them is published in the ledger.",
+      "empty": "The first shirt is in the works. Nothing to buy yet, on purpose."
+    },
+    "footer": {
+      "line": "Any surplus remains in the project.",
+      "ledger": "See the ledger"
+    }
+  }
+}

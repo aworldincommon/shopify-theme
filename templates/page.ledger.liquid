@@ -1,0 +1,111 @@
+{% block 'container', class: 'bg-on-surface text-surface', attributes: 'aria-labelledby="ledger-title"' %}
+  <div class="max-w-page mx-auto px-margin pt-16 pb-20 md:pt-24 md:pb-28 grid gap-10 md:grid-cols-12 md:items-end">
+    {% block 'heading', tag: 'h1', variant: '2xl', class: 'md:col-span-7 text-5xl md:text-8xl leading-[0.95] tracking-tight text-balance', attributes: 'id="ledger-title"' %}{{ page.title | escape }}{% endblock %}
+    <div class="md:col-span-5 flex flex-col gap-6">
+      {% block 'text', variant: 'lg', class: 'leading-relaxed text-surface/90' %}{{ 'wic.ledger.intro' | t }}{% endblock %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full' %}
+  <div class="py-16 md:py-20 grid gap-10 md:grid-cols-12">
+    <div class="md:col-span-7">
+      {% block 'text', tag: 'p', variant: 'lg', class: 'font-heading text-2xl md:text-3xl leading-snug tracking-tight text-balance' %}{{ 'wic.ledger.surplus' | t }}{% endblock %}
+    </div>
+    <div class="md:col-span-5 bg-surface-secondary border-y-2 border-dashed border-on-surface p-6">
+      {% block 'text', tag: 'h2', variant: 'sm', class: 'font-mono uppercase tracking-widest pb-4 mb-2 border-b border-dashed border-on-surface' %}{{ 'wic.ledger.scope_title' | t }}{% endblock %}
+      <ul role="list" class="font-mono text-sm divide-y divide-rule">
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_1' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_2' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_3' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_4' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_5' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_6' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_7' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_8' | t }}{% endblock %}</li>
+        <li class="py-2">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.scope_9' | t }}{% endblock %}</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{%- comment -%} Ledger structure only: no rows are seeded so no expense is ever invented. Add real rows here (or wire to a metaobject) as receipts arrive. {%- endcomment -%}
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full', attributes: 'aria-labelledby="ledger-table-title"' %}
+  <div class="pb-16 md:pb-24 flex flex-col gap-4">
+    <div class="flex flex-col gap-2 border-t-2 border-on-surface pt-8">
+      {% block 'heading', tag: 'h2', variant: 'md', class: 'leading-tight tracking-tight', attributes: 'id="ledger-table-title"' %}{{ 'wic.ledger.table_title' | t }}{% endblock %}
+      {% block 'text', variant: 'sm', class: 'text-on-surface-secondary' %}{{ 'wic.ledger.table_note' | t }}{% endblock %}
+    </div>
+    <div class="overflow-x-auto border-y-2 border-on-surface" tabindex="0" role="region" aria-labelledby="ledger-table-title">
+      <table class="w-full min-w-[64rem] font-mono text-xs text-start border-collapse">
+        <thead class="bg-on-surface text-surface">
+          <tr>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_date' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_category' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_description' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_vendor' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-end font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_net' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-end font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_vat' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-end font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_total' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_method' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_receipt' | t }}{% endblock %}</th>
+            <th scope="col" class="p-3 text-start font-normal uppercase tracking-wider">{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-xs' %}{{ 'wic.ledger.col_notes' | t }}{% endblock %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-rule">
+            <td colspan="10" class="p-6 text-center">
+              {% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-on-surface-secondary' %}{{ 'wic.ledger.empty' | t }}{% endblock %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
+
+{% block 'container', class: 'bg-surface-secondary', attributes: 'aria-labelledby="shirts-title"' %}
+  <div class="max-w-page mx-auto px-margin py-16 md:py-24 grid gap-10 md:grid-cols-12">
+    <div class="md:col-span-5 flex flex-col gap-5">
+      {% block 'heading', tag: 'h2', variant: 'xl', class: 'text-4xl md:text-6xl leading-none tracking-tight text-balance', attributes: 'id="shirts-title"' %}{{ 'wic.ledger.shirts_title' | t }}{% endblock %}
+      {% block 'text', class: 'max-w-prose leading-relaxed' %}{{ 'wic.ledger.shirts_body' | t }}{% endblock %}
+    </div>
+    <div class="md:col-span-7 bg-surface border-y-2 border-dashed border-on-surface px-5 py-6 md:px-8">
+      <dl class="flex flex-col font-mono text-sm divide-y divide-rule">
+        {%- for i in (1..7) -%}
+          <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4{% if forloop.last %} font-bold{% endif %}">
+            <dt>
+              {%- case i -%}
+                {%- when 1 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.shirts_fixed' | t }}{% endblock %}
+                {%- when 2 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.shirts_direct' | t }}{% endblock %}
+                {%- when 3 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.shirts_fees' | t }}{% endblock %}
+                {%- when 4 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.shirts_vat' | t }}{% endblock %}
+                {%- when 5 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.shirts_shipping' | t }}{% endblock %}
+                {%- when 6 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono' %}{{ 'wic.ledger.shirts_contribution' | t }}{% endblock %}
+                {%- else -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono font-bold' %}{{ 'wic.ledger.shirts_needed' | t }}{% endblock %}
+              {%- endcase -%}
+            </dt>
+            <dd class="sm:text-end">
+              {%- case i -%}
+                {%- when 1 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+                {%- when 2 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+                {%- when 3 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+                {%- when 4 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+                {%- when 5 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+                {%- when 6 -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+                {%- else -%}{% block 'text', tag: 'span', variant: 'sm', class: 'font-mono text-accent font-bold' %}{{ 'wic.ledger.shirts_pending' | t }}{% endblock %}
+              {%- endcase -%}
+            </dd>
+          </div>
+        {%- endfor -%}
+      </dl>
+      {% block 'text', variant: 'sm', class: 'font-mono pt-4 mt-2 border-t border-dashed border-on-surface text-on-surface-secondary leading-relaxed' %}{{ 'wic.ledger.shirts_method' | t }}{% endblock %}
+    </div>
+  </div>
+{% endblock %}
+
+{%- if page.content != blank -%}
+  {% block 'container', class: 'max-w-page mx-auto px-margin w-full' %}
+    <div class="py-16">{% block 'richtext', text: page.content, class: 'max-w-prose' %}{% endblock %}</div>
+  {% endblock %}
+{%- endif -%}

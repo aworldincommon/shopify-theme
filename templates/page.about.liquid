@@ -1,0 +1,37 @@
+{% block 'container', class: 'bg-on-surface text-surface', attributes: 'aria-labelledby="about-title"' %}
+  <div class="max-w-page mx-auto px-margin pt-16 pb-20 md:pt-24 md:pb-28 flex flex-col gap-8">
+    {% block 'text', tag: 'p', variant: 'sm', class: 'font-mono uppercase tracking-widest text-surface/70' %}{{ page.title | escape }}{% endblock %}
+    {% block 'heading', tag: 'h1', variant: 'xl', class: 'max-w-5xl text-4xl md:text-7xl leading-[0.98] tracking-tight text-balance', attributes: 'id="about-title"' %}{{ 'wic.about.lede' | t }}{% endblock %}
+  </div>
+{% endblock %}
+
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full' %}
+  <div class="py-16 md:py-24 grid gap-10 md:grid-cols-12">
+    <div class="md:col-span-1 hidden md:block">
+      <span class="block h-full w-1 bg-accent" aria-hidden="true"></span>
+    </div>
+    <blockquote class="md:col-span-10">
+      {% block 'text', tag: 'p', variant: 'lg', class: 'font-heading text-2xl md:text-4xl leading-snug tracking-tight text-balance' %}{{ 'wic.about.principle' | t }}{% endblock %}
+    </blockquote>
+  </div>
+{% endblock %}
+
+{% block 'container', class: 'max-w-page mx-auto px-margin w-full' %}
+  <div class="pb-16 md:pb-24 grid gap-10 md:grid-cols-12 border-t-2 border-on-surface pt-12">
+    <div class="md:col-span-5">
+      {% block 'heading', tag: 'h2', variant: 'md', class: 'leading-tight tracking-tight' %}{{ 'wic.about.how_title' | t }}{% endblock %}
+    </div>
+    <div class="md:col-span-7 flex flex-col gap-6">
+      {% block 'text', variant: 'lg', class: 'max-w-prose leading-relaxed' %}{{ 'wic.about.how_body' | t }}{% endblock %}
+      {%- if page.content != blank -%}
+        {% block 'richtext', text: page.content, class: 'max-w-prose' %}{% endblock %}
+      {%- endif -%}
+    </div>
+  </div>
+{% endblock %}
+
+{% block 'container', class: 'bg-army text-surface' %}
+  <div class="max-w-page mx-auto px-margin py-16 md:py-20">
+    {% block 'text', tag: 'p', variant: 'lg', class: 'font-heading text-3xl md:text-5xl leading-tight tracking-tight max-w-4xl text-balance' %}{{ 'wic.about.secondary' | t }}{% endblock %}
+  </div>
+{% endblock %}
