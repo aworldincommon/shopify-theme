@@ -69,7 +69,10 @@ def main() -> int:
     allowlist = load_allowlist()
     findings: list[tuple[Path, int, str]] = []
 
+    scanner_path = Path(__file__).resolve()
     for path in tracked_files():
+        if path.resolve() == scanner_path:
+            continue
         if not path.exists() or is_binary(path):
             continue
         try:
