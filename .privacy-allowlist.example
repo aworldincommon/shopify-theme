@@ -1,0 +1,3 @@
+# Optional local-only regex patterns for values that are deliberately public.
+# Copy this file to .privacy-allowlist; never commit that local file.
+# Keep each approved regex on its own line and review it before use.

@@ -1,0 +1,5 @@
+# Local privacy exceptions; never commit these.
+.privacy-allowlist
+
+# Local Shopify/agent state.
+.shopify/
