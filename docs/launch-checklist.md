@@ -10,11 +10,9 @@ Do these steps in order when the Dawn theme goes live. Until then, the live them
    ```
 2. In Shopify Admin, go to **Online Store > Themes** and publish "World in Common - Dawn Draft".
 
-## 2. Assign the page templates
+## 2. Page templates
 
-Shopify Admin lists only the templates of the **live** theme. So the custom page templates can be assigned only after step 1.
-
-Go to **Online Store > Pages**. For each page, set **Theme template**:
+The page templates were assigned before launch with the Admin API (`pageUpdate` with `templateSuffix`), because Shopify Admin lists only the templates of the **live** theme. After you publish, check each page once:
 
 | Page handle | Theme template |
 | --- | --- |
@@ -24,10 +22,10 @@ Go to **Online Store > Pages**. For each page, set **Theme template**:
 | `open-source` | `open-source` |
 | `transparency-ledger` | `transparency-ledger` |
 
-Before launch, preview a template on its page with `?view=<template>`, for example `/pages/about?view=about`.
+If a page shows the plain default layout, set its **Theme template** in **Online Store > Pages**. After publish, the list shows these templates.
 
-## 3. After the templates are assigned
+## 3. Final checks
 
-- Add the pages to **Online Store > Navigation** (main menu and footer menu).
+- Check that the main menu and footer menu in **Online Store > Navigation** link to every page.
 - Connect the `aworldincommon.com` domain.
 - Remove the storefront password only when you are ready to go public.
