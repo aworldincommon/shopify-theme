@@ -3014,6 +3014,36 @@
         }
       }
     },
+    "wic_shelf": {
+      "name": "WIC influences shelf",
+      "settings": {
+        "kicker": { "label": "Kicker" },
+        "heading": { "label": "Heading" },
+        "intro": { "label": "Intro" },
+        "books_label": { "label": "Books label" },
+        "people_label": { "label": "People label" },
+        "link_label": { "label": "Link label" },
+        "link": { "label": "Link" }
+      },
+      "blocks": {
+        "book": {
+          "name": "Book",
+          "settings": {
+            "title": { "label": "Title" },
+            "author": { "label": "Author" },
+            "note": { "label": "Note" },
+            "link": { "label": "Link" }
+          }
+        },
+        "person": {
+          "name": "Person",
+          "settings": {
+            "name": { "label": "Name" },
+            "note": { "label": "Note" }
+          }
+        }
+      }
+    },
     "wic_essay": {
       "name": "WIC essay",
       "settings": {

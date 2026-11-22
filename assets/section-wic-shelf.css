@@ -1,0 +1,147 @@
+/*
+  World in Common influences shelf: books as numbered cards, people as a ledger list.
+  Note: Dawn sets 1rem = 10px.
+*/
+
+.wic-shelf__head {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: 4rem;
+}
+
+.wic-shelf__kicker,
+.wic-shelf__heading {
+  margin: 0;
+}
+
+.wic-shelf__heading {
+  font-size: clamp(4.4rem, 8vw, 9.6rem);
+  line-height: 0.9;
+  color: rgb(var(--wic-burgundy));
+}
+
+.wic-shelf__intro {
+  max-width: 56ch;
+  font-size: 1.8rem;
+  line-height: 1.55;
+}
+
+.wic-shelf__intro > :first-child {
+  margin-top: 0;
+}
+
+.wic-shelf__intro > :last-child {
+  margin-bottom: 0;
+}
+
+.wic-shelf__label {
+  margin: 0 0 1.6rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 0.2rem solid rgb(var(--color-foreground));
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Books */
+
+.wic-shelf__books {
+  display: grid;
+  gap: 1.6rem;
+  margin: 0 0 5.6rem;
+}
+
+.wic-shelf__book {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 2rem;
+  border: 0.2rem solid rgb(var(--color-foreground));
+  border-top: 1.2rem solid rgb(var(--wic-burgundy));
+  background-color: rgb(var(--color-background));
+}
+
+.wic-shelf__book-number,
+.wic-shelf__book-author {
+  margin: 0;
+}
+
+.wic-shelf__book-number {
+  color: rgb(var(--wic-burgundy));
+}
+
+.wic-shelf__book-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 2.6vw, 3.2rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wic-shelf__book-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wic-shelf__book-title a:hover {
+  color: rgb(var(--wic-burgundy));
+}
+
+.wic-shelf__book-note {
+  margin: 0.4rem 0 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 750px) {
+  .wic-shelf__books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .wic-shelf__books {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* People */
+
+.wic-shelf__people {
+  margin: 0 0 4rem;
+}
+
+.wic-shelf__person {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.6rem 0;
+  border-bottom: 0.1rem dashed rgba(var(--color-foreground), 0.5);
+}
+
+.wic-shelf__person-name {
+  margin: 0;
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wic-shelf__person-note {
+  margin: 0;
+  max-width: 64ch;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 750px) {
+  .wic-shelf__person {
+    grid-template-columns: 5fr 7fr;
+    align-items: baseline;
+    column-gap: 4.8rem;
+  }
+}
+
+.wic-shelf__more {
+  margin: 0;
+}
+
+.wic-shelf__more .button {
+  margin: 0;
+}

@@ -128,11 +128,123 @@
         "padding_top": 56,
         "padding_bottom": 72
       }
+    },
+    "influences": {
+      "type": "wic-shelf",
+      "blocks": {
+        "book_1": {
+          "type": "book",
+          "settings": {
+            "title": "Technofeudalism",
+            "author": "Yanis Varoufakis",
+            "note": "Argues that cloud platforms have replaced markets with something closer to fiefdoms. It also remembers that the first internet ran on common, open protocols that anyone could use for free.",
+            "link": ""
+          }
+        },
+        "book_2": {
+          "type": "book",
+          "settings": {
+            "title": "The Man Who Quit Money",
+            "author": "Mark Sundeen",
+            "note": "Daniel Suelo stopped using money. The book asks how much of our relationship with money is necessary—and how much we have simply accepted by default.",
+            "link": ""
+          }
+        },
+        "book_3": {
+          "type": "book",
+          "settings": {
+            "title": "Broken Money",
+            "author": "Lyn Alden",
+            "note": "A history of money as a ledger, and of why the financial system fails so many of the people who depend on it.",
+            "link": ""
+          }
+        },
+        "book_4": {
+          "type": "book",
+          "settings": {
+            "title": "The Price of Tomorrow",
+            "author": "Jeff Booth",
+            "note": "Technology keeps making things cheaper. An economy built on ever-growing credit has to fight that.",
+            "link": ""
+          }
+        },
+        "book_5": {
+          "type": "book",
+          "settings": {
+            "title": "Sapiens",
+            "author": "Yuval Noah Harari",
+            "note": "How shared stories—money among them—let millions of strangers cooperate.",
+            "link": ""
+          }
+        },
+        "book_6": {
+          "type": "book",
+          "settings": {
+            "title": "Island",
+            "author": "Aldous Huxley",
+            "note": "Huxley’s last novel imagines a small society organised around human flourishing, and asks what it would take to protect it.",
+            "link": ""
+          }
+        },
+        "person_1": {
+          "type": "person",
+          "settings": {
+            "name": "Yanis Varoufakis",
+            "note": "Economist and former Greek finance minister. Author of Technofeudalism."
+          }
+        },
+        "person_2": {
+          "type": "person",
+          "settings": {
+            "name": "Jonathan Haidt",
+            "note": "Social psychologist. Writes about how social media changes childhood and public life."
+          }
+        },
+        "person_3": {
+          "type": "person",
+          "settings": {
+            "name": "Daniel Suelo",
+            "note": "Lived for years without money. The subject of The Man Who Quit Money."
+          }
+        },
+        "person_4": {
+          "type": "person",
+          "settings": {
+            "name": "Judy Heumann",
+            "note": "Disability rights activist who fought for access as a civil right."
+          }
+        }
+      },
+      "block_order": [
+        "book_1",
+        "book_2",
+        "book_3",
+        "book_4",
+        "book_5",
+        "book_6",
+        "person_1",
+        "person_2",
+        "person_3",
+        "person_4"
+      ],
+      "settings": {
+        "kicker": "What formed our views",
+        "heading": "Influences",
+        "intro": "<p>The books and people that formed our views. We do not agree with everything any of them says.</p>",
+        "books_label": "Books",
+        "people_label": "People",
+        "link_label": "The full reading list",
+        "link": "/pages/learn-more",
+        "color_scheme": "scheme-1",
+        "padding_top": 56,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "header",
     "essay",
-    "commons"
+    "commons",
+    "influences"
   ]
 }
