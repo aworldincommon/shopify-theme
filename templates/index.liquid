@@ -8,7 +8,7 @@
   it points at the object on this page rather than a product that is not on sale yet.
 {%- endcomment -%}
 {% block 'container', class: 'w-full max-w-page mx-auto px-margin', attributes: 'aria-labelledby="home-masthead"' %}
-  <div class="flex flex-col gap-8 pt-4 pb-16 md:gap-12 md:pb-24">
+  <div class="flex flex-col gap-8 pt-4 pb-16 border-b-8 border-accent md:gap-12 md:pb-24">
     {%- comment -%} Dateline row: a masthead convention that also states the store's real status. {%- endcomment -%}
     <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 pb-3 border-b-2 border-on-surface">
       {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest text-army' %}{{ 'wic.home.hero_status_1' | t }}{% endblock %}
@@ -20,7 +20,7 @@
     {%- comment -%} Asymmetric 3 / 6 / 3 split: the stamp sits in the margin column like a marginal note. {%- endcomment -%}
     <div class="grid gap-8 pt-6 border-t border-dashed border-on-surface md:grid-cols-12 md:items-end">
       <div class="md:col-span-3 md:self-start">
-        <div class="inline-block -rotate-3 border-2 border-accent px-3 py-2 text-accent">
+        <div class="inline-block -rotate-3 border-2 border-accent bg-accent px-3 py-2 text-surface">
           {% block 'text', variant: 'sm', class: 'font-mono uppercase tracking-widest' %}{{ 'wic.home.hero_stamp' | t }}{% endblock %}
         </div>
       </div>
