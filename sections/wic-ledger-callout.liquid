@@ -31,6 +31,20 @@
 <div class="wic-ledger color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width section-{{ section.id }}-padding">
     <div class="wic-ledger__grid">
+      {%- if section.settings.emblem_image != blank or section.settings.emblem != 'none' -%}
+        {%- comment -%}
+          The emblem sits on a paper card, pasted onto the band, so it keeps its black and burgundy
+          parts on the dark and burgundy schemes.
+        {%- endcomment -%}
+        <div class="wic-ledger__card color-scheme-1" aria-hidden="true">
+          {%- render 'wic-emblem',
+            image: section.settings.emblem_image,
+            emblem: section.settings.emblem,
+            class: 'wic-emblem',
+            sizes: '(min-width: 750px) 24vw, 70vw'
+          -%}
+        </div>
+      {%- endif -%}
       <div class="wic-ledger__main">
         {%- if section.settings.kicker != blank -%}
           <p class="wic-ledger__kicker wic-mono">{{ section.settings.kicker | escape }}</p>
@@ -98,6 +112,28 @@
       "id": "button_link",
       "label": "t:sections.wic_ledger_callout.settings.button_link.label",
       "info": "t:sections.wic_ledger_callout.settings.button_link.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.wic_shared.settings.emblem_header.content"
+    },
+    {
+      "type": "select",
+      "id": "emblem",
+      "label": "t:sections.wic_shared.settings.emblem.label",
+      "info": "t:sections.wic_shared.settings.emblem.info",
+      "options": [
+        { "value": "arch", "label": "t:sections.wic_shared.settings.emblem.options__arch" },
+        { "value": "roof", "label": "t:sections.wic_shared.settings.emblem.options__roof" },
+        { "value": "none", "label": "t:sections.wic_shared.settings.emblem.options__none" }
+      ],
+      "default": "roof"
+    },
+    {
+      "type": "image_picker",
+      "id": "emblem_image",
+      "label": "t:sections.wic_shared.settings.emblem_image.label",
+      "info": "t:sections.wic_shared.settings.emblem_image.info"
     },
     {
       "type": "color_scheme",

@@ -1,0 +1,366 @@
+{{ 'section-wic-editorial.css' | asset_url | stylesheet_tag }}
+{{ 'section-wic-ledger.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+  The public expense ledger. Every line is a block, edited in the theme editor.
+  Rules from the project:
+  - Amounts are text and are shown exactly as entered. The theme never adds up or estimates.
+  - A blank amount shows the "awaiting" text, never a number.
+  - VAT lines have their own type and are never counted or labelled as project income.
+{%- endcomment -%}
+{%- liquid
+  assign awaiting = section.settings.awaiting_text | default: 'Awaiting real cost'
+  assign currency = section.settings.currency
+  assign tbd = 'sections.wic_ledger_table.tbd' | t
+  assign entry_count = 0
+  for block in section.blocks
+    if block.type == 'entry'
+      assign entry_count = entry_count | plus: 1
+    endif
+  endfor
+-%}
+
+<div class="wic-ledger-table color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="wic-ledger-table__head wic-top-rule">
+      <div>
+        {%- if section.settings.kicker != blank -%}
+          <p class="wic-ledger-table__kicker wic-mono wic-accent-burgundy">{{ section.settings.kicker | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="wic-ledger-table__heading" id="WicLedgerHeading-{{ section.id }}">
+            {{- section.settings.heading | escape -}}
+          </h2>
+        {%- endif -%}
+      </div>
+
+      <dl class="wic-ledger-table__stats">
+        <div class="wic-ledger-table__stat">
+          <dt class="wic-mono">{{ section.settings.shirts_label | escape }}</dt>
+          <dd>{{ section.settings.shirts_needed | default: tbd | escape }}</dd>
+        </div>
+        <div class="wic-ledger-table__stat">
+          <dt class="wic-mono">{{ section.settings.contribution_label | escape }}</dt>
+          <dd>{{ section.settings.contribution_per_shirt | default: tbd | escape }}</dd>
+        </div>
+      </dl>
+    </div>
+
+    {%- if entry_count > 0 -%}
+      <div
+        class="wic-ledger-table__scroll"
+        role="region"
+        aria-labelledby="WicLedgerHeading-{{ section.id }}"
+        tabindex="0"
+      >
+        <table class="wic-ledger-table__table">
+          {%- if section.settings.caption != blank -%}
+            <caption class="wic-mono">{{ section.settings.caption | escape }}</caption>
+          {%- endif -%}
+          <thead class="wic-mono">
+            <tr>
+              <th scope="col">{{ 'sections.wic_ledger_table.date' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.type' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.category' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.description' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.vendor' | t }}</th>
+              <th scope="col" class="wic-ledger-table__num">
+                {{ 'sections.wic_ledger_table.amount_net' | t }}
+                {%- if currency != blank %} ({{ currency | escape }}){% endif -%}
+              </th>
+              <th scope="col" class="wic-ledger-table__num">{{ 'sections.wic_ledger_table.vat' | t }}</th>
+              <th scope="col" class="wic-ledger-table__num">{{ 'sections.wic_ledger_table.total' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.payment' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.source' | t }}</th>
+              <th scope="col">{{ 'sections.wic_ledger_table.notes' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'entry' -%}
+                {%- liquid
+                  assign type_key = 'sections.wic_ledger_table.types.' | append: block.settings.type
+                  assign category_key = 'sections.wic_ledger_table.categories.' | append: block.settings.category
+                -%}
+                <tr class="wic-ledger-table__row wic-ledger-table__row--{{ block.settings.type }}" {{ block.shopify_attributes }}>
+                  <td class="wic-mono">{{ block.settings.date | default: '—' | escape }}</td>
+                  <td><span class="wic-ledger-table__tag wic-mono">{{ type_key | t }}</span></td>
+                  <td>{{ category_key | t }}</td>
+                  <td>{{ block.settings.description | escape }}</td>
+                  <td>{{ block.settings.vendor | escape }}</td>
+                  {%- for amount in (1..3) -%}
+                    {%- liquid
+                      case amount
+                        when 1
+                          assign value = block.settings.amount_net
+                        when 2
+                          assign value = block.settings.vat
+                        when 3
+                          assign value = block.settings.total
+                      endcase
+                    -%}
+                    <td class="wic-ledger-table__num wic-mono">
+                      {%- if value != blank -%}
+                        {{ value | escape }}
+                      {%- else -%}
+                        <span class="wic-ledger-table__awaiting">{{ awaiting | escape }}</span>
+                      {%- endif -%}
+                    </td>
+                  {%- endfor -%}
+                  <td>{{ block.settings.payment_method | escape }}</td>
+                  <td>
+                    {%- if block.settings.source_link != blank -%}
+                      {%- liquid
+                        assign source_label = block.settings.source_label
+                        if source_label == blank
+                          assign source_label = 'sections.wic_ledger_table.source_default' | t
+                        endif
+                      -%}
+                      <a href="{{ block.settings.source_link }}" class="wic-ledger-table__link">
+                        {{- source_label | escape -}}
+                      </a>
+                    {%- else -%}
+                      {{ block.settings.source_label | escape }}
+                    {%- endif -%}
+                  </td>
+                  <td>{{ block.settings.notes | escape }}</td>
+                </tr>
+              {%- endif -%}
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    {%- else -%}
+      <div class="wic-ledger-table__empty">
+        <p class="wic-ledger-table__empty-text">{{ section.settings.empty_text | escape }}</p>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}
+      <div class="wic-ledger-table__footnote rte">{{ section.settings.footnote }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.wic_ledger_table.name",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 50,
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "t:sections.wic_ledger_table.settings.kicker.label",
+      "default": "Public ledger"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.wic_ledger_table.settings.heading.label",
+      "default": "Every cost, from day zero"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "t:sections.wic_ledger_table.settings.caption.label"
+    },
+    {
+      "type": "text",
+      "id": "currency",
+      "label": "t:sections.wic_ledger_table.settings.currency.label",
+      "default": "EUR"
+    },
+    {
+      "type": "text",
+      "id": "awaiting_text",
+      "label": "t:sections.wic_ledger_table.settings.awaiting_text.label",
+      "default": "Awaiting real cost"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "t:sections.wic_ledger_table.settings.empty_text.label",
+      "default": "No entries yet. Lines appear here as real receipts come in."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.wic_ledger_table.settings.stats_header.content"
+    },
+    {
+      "type": "text",
+      "id": "shirts_label",
+      "label": "t:sections.wic_ledger_table.settings.shirts_label.label",
+      "default": "Shirts to sell to keep the project alive"
+    },
+    {
+      "type": "text",
+      "id": "shirts_needed",
+      "label": "t:sections.wic_ledger_table.settings.shirts_needed.label",
+      "info": "t:sections.wic_ledger_table.settings.shirts_needed.info"
+    },
+    {
+      "type": "text",
+      "id": "contribution_label",
+      "label": "t:sections.wic_ledger_table.settings.contribution_label.label",
+      "default": "Contribution to the project per shirt"
+    },
+    {
+      "type": "text",
+      "id": "contribution_per_shirt",
+      "label": "t:sections.wic_ledger_table.settings.contribution_per_shirt.label",
+      "info": "t:sections.wic_ledger_table.settings.shirts_needed.info"
+    },
+    {
+      "type": "richtext",
+      "id": "footnote",
+      "label": "t:sections.wic_ledger_table.settings.footnote.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "entry",
+      "name": "t:sections.wic_ledger_table.blocks.entry.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "date",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.date.label",
+          "info": "t:sections.wic_ledger_table.blocks.entry.settings.date.info"
+        },
+        {
+          "type": "select",
+          "id": "type",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.type.label",
+          "info": "t:sections.wic_ledger_table.blocks.entry.settings.type.info",
+          "options": [
+            { "value": "expense", "label": "t:sections.wic_ledger_table.blocks.entry.settings.type.options__expense" },
+            { "value": "income", "label": "t:sections.wic_ledger_table.blocks.entry.settings.type.options__income" },
+            { "value": "vat", "label": "t:sections.wic_ledger_table.blocks.entry.settings.type.options__vat" }
+          ],
+          "default": "expense"
+        },
+        {
+          "type": "select",
+          "id": "category",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.label",
+          "options": [
+            { "value": "domain", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__domain" },
+            { "value": "software", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__software" },
+            { "value": "shopify", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__shopify" },
+            { "value": "samples", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__samples" },
+            { "value": "garments", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__garments" },
+            { "value": "printing", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__printing" },
+            { "value": "packaging", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__packaging" },
+            { "value": "shipping", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__shipping" },
+            { "value": "ads", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__ads" },
+            { "value": "design_tools", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__design_tools" },
+            { "value": "events", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__events" },
+            { "value": "sales", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__sales" },
+            { "value": "other", "label": "t:sections.wic_ledger_table.blocks.entry.settings.category.options__other" }
+          ],
+          "default": "other"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.description.label"
+        },
+        {
+          "type": "text",
+          "id": "vendor",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.vendor.label"
+        },
+        {
+          "type": "text",
+          "id": "amount_net",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.amount_net.label",
+          "info": "t:sections.wic_ledger_table.blocks.entry.settings.amount_net.info"
+        },
+        {
+          "type": "text",
+          "id": "vat",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.vat.label"
+        },
+        {
+          "type": "text",
+          "id": "total",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.total.label"
+        },
+        {
+          "type": "text",
+          "id": "payment_method",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.payment_method.label",
+          "info": "t:sections.wic_ledger_table.blocks.entry.settings.payment_method.info"
+        },
+        {
+          "type": "text",
+          "id": "source_label",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.source_label.label"
+        },
+        {
+          "type": "url",
+          "id": "source_link",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.source_link.label",
+          "info": "t:sections.wic_ledger_table.blocks.entry.settings.source_link.info"
+        },
+        {
+          "type": "text",
+          "id": "notes",
+          "label": "t:sections.wic_ledger_table.blocks.entry.settings.notes.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wic_ledger_table.name"
+    }
+  ]
+}
+{% endschema %}

@@ -15,9 +15,11 @@ The storefront should feel like an independent political magazine, underground c
 - Army green: `#4A5233`
 - Rules: black at low opacity
 
-Use burgundy as deliberate punctuation: stamps, rules, labels, and occasional bands. Do not wash the page in red.
+Burgundy leads the palette: the nameplate, primary buttons, stamps, rules, labels, every second topic, the announcement bar, the ledger band and the footer. Keep paper and newsprint sections between burgundy bands so the page does not read as one red wash.
 
-Typography: editorial display face for statements; warm serif or humanist sans for body copy; monospace only for receipt/ledger metadata.
+Typography: Anton (condensed poster face, uppercase) for display headings; Archivo for body copy; monospace only for receipt/ledger metadata.
+
+Emblems: the two approved screen-print marks, #1 brick arch and #2 square seal, live in `assets/wic-emblem-arch.webp` and `assets/wic-emblem-roof.webp` with transparent backgrounds. Place them on paper or newsprint only, or on a paper card on darker bands. Their black and burgundy parts disappear on the ink and burgundy schemes.
 
 Graphic language: thermal receipts, torn paper, rubber stamps, ledger rules, photocopy grain, screen-print imperfections, generous whitespace, and strong asymmetrical editorial composition.
 

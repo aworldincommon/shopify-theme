@@ -1,0 +1,54 @@
+{%- comment -%}
+  Renders a World in Common screen-print emblem.
+
+  Accepts:
+  - image: {Object} Optional image from an image_picker setting. Wins over `emblem`.
+  - emblem: {String} One of arch, roof, none. Bundled theme asset fallback.
+  - class: {String} Optional class for the img tag.
+  - sizes: {String} Optional sizes attribute.
+  - loading: {String} Optional loading attribute. Defaults to lazy.
+
+  The emblems are decorative marks, not content, so they have empty alt text.
+  The bundled assets have transparent backgrounds. Use them on paper or newsprint schemes only:
+  their black and burgundy parts disappear on the ink and burgundy schemes.
+
+  Usage:
+  {% render 'wic-emblem', image: section.settings.emblem_image, emblem: section.settings.emblem, class: 'wic-emblem' %}
+{%- endcomment -%}
+
+{%- liquid
+  assign loading = loading | default: 'lazy'
+  assign sizes = sizes | default: '(min-width: 750px) 40vw, 90vw'
+-%}
+
+{%- if image != blank -%}
+  {{
+    image
+    | image_url: width: 1200
+    | image_tag: class: class, loading: loading, sizes: sizes, widths: '400, 600, 800, 1200', alt: ''
+  }}
+{%- elsif emblem != blank and emblem != 'none' -%}
+  {%- liquid
+    case emblem
+      when 'arch'
+        assign w = 1064
+        assign h = 1140
+      when 'roof'
+        assign w = 1036
+        assign h = 1024
+    endcase
+    assign file = 'wic-emblem-' | append: emblem | append: '.webp'
+  -%}
+  {%- if w -%}
+    <img
+      src="{{ file | asset_url }}"
+      alt=""
+      width="{{ w }}"
+      height="{{ h }}"
+      loading="{{ loading }}"
+      {% if class %}
+        class="{{ class }}"
+      {% endif %}
+    >
+  {%- endif -%}
+{%- endif -%}

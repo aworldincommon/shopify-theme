@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Open source",
+        "heading": "Open Source Is a Commons",
+        "intro": "",
+        "show_page_content": true,
+        "emblem": "roof",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "essay": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Working thesis",
+            "text": "<p>Open-source software is more than a technical method. It is a way of contributing to a shared public infrastructure.</p><p>When someone releases useful software openly, other people can inspect it, learn from it, improve it, adapt it, and build on top of it. The value does not remain locked inside one company. It becomes part of a commons.</p><p>That is a form of rebellion against the idea that every useful tool must be owned, rented, and controlled by a giant platform.</p>"
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "AI changes the equation",
+            "text": "<p>AI makes software development faster and more accessible. That creates a danger: people may use AI to produce more closed tools for more powerful companies, making the same concentrated system even stronger.</p><p>But the same tools can also be used in the opposite direction. People can use AI to build, document, test, translate, and maintain open-source alternatives—and then release the source, the documentation, and the improvements back to everyone.</p><p>The important question is not simply whether AI wrote the code. The question is: <strong>who can inspect it, use it, improve it, and own the infrastructure built around it?</strong></p><p>AI-generated code should still be reviewed by humans, tested, documented, and released under a clear licence. Open source is not automatically good, secure, or sustainable. It becomes a public contribution when people take responsibility for maintaining it.</p>"
+          }
+        },
+        "chapter_3": {
+          "type": "chapter",
+          "settings": {
+            "heading": "From consumers to contributors",
+            "text": "<p>A closed tool turns us into users. An open tool can turn us into participants.</p><p>We do not need to recreate every platform from scratch. Many of the tools controlled by large companies are no longer technically mysterious. The difficult part is often maintenance, trust, distribution, governance, and sustainable funding—not magic.</p><p>Open source gives us a way to redirect value:</p><ul><li>from rented access to shared infrastructure</li><li>from passive consumption to contribution</li><li>from platform dependence to interoperability</li><li>from proprietary black boxes to inspectable tools</li><li>from a few owners extracting value to many people building capacity together</li></ul><p>This is not a promise that every open-source project will replace a giant company. It is a commitment to build more of the tools we want to depend on.</p>"
+          }
+        },
+        "chapter_4": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Open source as social contribution",
+            "text": "<p>Software is infrastructure. It shapes how we communicate, work, learn, organize, and exchange value.</p><p>Contributing code, documentation, translations, design, testing, support, or funding is a way of improving the environment other people live in.</p><p>You do not need to start a company to make a contribution. You can fix a bug, write documentation, answer a question, report a vulnerability, translate an interface, or help maintain a project that thousands of people rely on.</p><p>The commons is built by people who decide that useful things should not disappear behind a login screen.</p>"
+          }
+        },
+        "chapter_5": {
+          "type": "chapter",
+          "settings": {
+            "heading": "What we are trying to do",
+            "text": "<p>World in Common will use AI where it helps us move faster—but we will try to direct the output toward shared tools, open knowledge, and public alternatives.</p><p>We will be transparent about what is AI-assisted. We will not pretend that AI removes the need for human judgement, maintenance, or accountability.</p><p>The goal is simple:</p>"
+          }
+        },
+        "quote_6": {
+          "type": "quote",
+          "settings": {
+            "text": "Use the machines to build tools that make people less dependent on the machines' owners.",
+            "cite": ""
+          }
+        },
+        "chapter_7": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Transparency note",
+            "text": "<p>If we publish software or code created with AI assistance, we should identify the level of assistance and publish the relevant licence, repository, documentation, and known limitations. The point is not to claim purity. The point is to make the contribution inspectable and useful to other people.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "chapter_2",
+        "chapter_3",
+        "chapter_4",
+        "chapter_5",
+        "quote_6",
+        "chapter_7"
+      ],
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "header",
+    "essay"
+  ]
+}

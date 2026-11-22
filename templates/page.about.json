@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "About",
+        "heading": "About World in Common",
+        "intro": "<p>World in Common started as a personal project.</p>",
+        "show_page_content": true,
+        "emblem": "arch",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "essay": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "A personal note",
+            "text": "<p>I am passionate about co-living, community, and the question of how people can build a better life together. I am interested not only in the things we disagree about, but in the things we already agree on—and in what we could improve or achieve if we worked from that shared ground.</p><p>I spent much of my career working in technology and was fortunate to build a successful career there. That experience gave me skills, perspective, and enough stability to make more deliberate choices about how I spend my time. I do not see that as a moral achievement, and I know that not everyone has the same options. It would be dishonest to pretend that this project exists outside the economic system it questions.</p><p>What I am trying to do now is redirect more of my effort: away from optimising only for income, and toward making things that help people think, connect, and build. I have wanted to spend time on these questions for a long time. World in Common is one way of finally doing that work in public.</p><p>I would like to do much more than this, but I have to start somewhere. World in Common is a small first step toward the larger things I hope to build around these ideas. For now, I am developing it alongside my work. If it becomes useful, reaches more people, and creates real momentum, I can gradually invest more of my time in it and less in my job.</p><p>I do not want to pretend that impact is guaranteed. I want to let the project earn its next step. As I learn whether these ideas are useful to other people—and whether the project can support itself—I will decide how much further I can take it.</p><p>I am an optimist. Not because I think the world is fine, and not because I believe good intentions are enough. I am optimistic because people are capable of building things that do not exist yet. Communities, tools, places, and ways of living can all be changed.</p><p>I also love streetwear and design. For a long time, I found most printed T-shirts boring. I rarely found something I genuinely wanted to put on my body and walk through the street wearing—something that expressed an idea I actually stood for.</p><p>My visual inspiration comes from many places, including Japanese art and design. I am drawn to its restraint, rhythm, attention to materials, respect for ordinary objects, and ability to communicate a lot without filling every available space. I am not trying to imitate Japanese tradition or use it as decoration. I am interested in learning from those principles and combining them with streetwear, print culture, political graphics, and contemporary design.</p><p>So I started making those things myself.</p><p>The T-shirts are not just merchandise. They are small public statements and pieces of creative expression. They are meant to start conversations, make people laugh, irritate people a little, or help someone recognize an idea they have been carrying around themselves.</p><p>The same is true of the writing, videos, and other projects here. They are ways of exploring questions about money, work, community, technology, belonging, and the systems that shape our lives.</p><p>I do not have a complete blueprint for a better society. I am trying to find the people, ideas, and experiments that can help us build one.</p><p>For me, this is a form of rebellion—but not only rebellion. It is also an act of hope, curiosity, and design.</p>"
+          }
+        },
+        "quote_2": {
+          "type": "quote",
+          "settings": {
+            "text": "I want to make things that help people imagine—and maybe practise—other ways of living.",
+            "cite": ""
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "quote_2"
+      ],
+      "settings": {
+        "numbered": false,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "header",
+    "essay"
+  ]
+}

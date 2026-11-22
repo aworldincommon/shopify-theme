@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Transparency",
+        "heading": "",
+        "intro": "<p>Every cost of World in Common is published here, from day zero.</p>",
+        "show_page_content": true,
+        "emblem": "roof",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "ledger": {
+      "type": "wic-ledger-table",
+      "settings": {
+        "kicker": "Public ledger",
+        "heading": "The ledger",
+        "caption": "",
+        "currency": "EUR",
+        "awaiting_text": "Awaiting real cost",
+        "empty_text": "No entries yet. Lines appear here as real receipts come in.",
+        "shirts_label": "Shirts to sell to keep the project alive",
+        "shirts_needed": "",
+        "contribution_label": "Contribution to the project per shirt",
+        "contribution_per_shirt": "",
+        "footnote": "<p>Amounts are shown exactly as on the receipt. Nothing is estimated, and the page does not add anything up for you.</p>",
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 72
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "rules": {
+      "type": "wic-essay",
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-2",
+        "padding_top": 56,
+        "padding_bottom": 72
+      },
+      "blocks": {
+        "what": {
+          "type": "chapter",
+          "settings": {
+            "heading": "What gets published",
+            "text": "<p>Every expense, from the first one:</p><ul><li>domain</li><li>software</li><li>Shopify</li><li>samples</li><li>garments</li><li>printing</li><li>packaging</li><li>shipping</li><li>ads</li><li>design tools</li><li>events</li></ul>"
+          }
+        },
+        "vat": {
+          "type": "chapter",
+          "settings": {
+            "heading": "VAT is not income",
+            "text": "<p>VAT is shown on its own line, with its own type. It is never counted as project income.</p>"
+          }
+        },
+        "surplus": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Contribution to the project",
+            "text": "<p>When a sale brings in more than it costs, the difference is an operating surplus: a contribution to the project. It pays for the next piece of work.</p>"
+          }
+        },
+        "real": {
+          "type": "chapter",
+          "settings": {
+            "heading": "No invented numbers",
+            "text": "<p>Until a cost is real, the ledger says “Awaiting real cost” or “TBD”. Nothing is estimated.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "what",
+        "vat",
+        "surplus",
+        "real"
+      ]
+    }
+  },
+  "order": [
+    "header",
+    "ledger",
+    "rules"
+  ]
+}

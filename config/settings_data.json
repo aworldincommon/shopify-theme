@@ -10,9 +10,9 @@
             "background": "#F4F0E8",
             "background_gradient": "",
             "text": "#111111",
-            "button": "#111111",
+            "button": "#A3161A",
             "button_label": "#F4F0E8",
-            "secondary_button_label": "#111111",
+            "secondary_button_label": "#A3161A",
             "shadow": "#111111"
           }
         },
@@ -21,9 +21,9 @@
             "background": "#E7E0D2",
             "background_gradient": "",
             "text": "#111111",
-            "button": "#111111",
-            "button_label": "#E7E0D2",
-            "secondary_button_label": "#111111",
+            "button": "#A3161A",
+            "button_label": "#F4F0E8",
+            "secondary_button_label": "#A3161A",
             "shadow": "#111111"
           }
         },
@@ -32,8 +32,8 @@
             "background": "#111111",
             "background_gradient": "",
             "text": "#F4F0E8",
-            "button": "#F4F0E8",
-            "button_label": "#111111",
+            "button": "#A3161A",
+            "button_label": "#F4F0E8",
             "secondary_button_label": "#F4F0E8",
             "shadow": "#111111"
           }
@@ -61,9 +61,9 @@
           }
         }
       },
-      "type_header_font": "playfair_display_n4",
-      "heading_scale": 100,
-      "type_body_font": "assistant_n4",
+      "type_header_font": "anton_n4",
+      "heading_scale": 110,
+      "type_body_font": "archivo_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,

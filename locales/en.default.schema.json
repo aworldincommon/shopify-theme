@@ -2914,6 +2914,138 @@
         }
       }
     },
+    "wic_shared": {
+      "settings": {
+        "emblem_header": { "content": "Emblem" },
+        "emblem": {
+          "label": "Emblem",
+          "info": "Bundled screen-print emblems. Use them on the paper or newsprint color schemes.",
+          "options__arch": "Arch",
+          "options__roof": "Roof",
+          "options__none": "None"
+        },
+        "emblem_image": {
+          "label": "Custom emblem image",
+          "info": "Replaces the bundled emblem. A transparent background works best."
+        }
+      }
+    },
+    "wic_page_header": {
+      "name": "WIC page header",
+      "settings": {
+        "kicker": { "label": "Kicker" },
+        "heading": {
+          "label": "Heading",
+          "info": "Leave blank to use the page title from Admin."
+        },
+        "intro": { "label": "Intro" },
+        "show_page_content": {
+          "label": "Show page content",
+          "info": "Shows the content from Online Store > Pages under the intro."
+        }
+      }
+    },
+    "wic_ledger_table": {
+      "name": "WIC ledger table",
+      "settings": {
+        "kicker": { "label": "Kicker" },
+        "heading": { "label": "Heading" },
+        "caption": { "label": "Table caption" },
+        "currency": { "label": "Currency" },
+        "awaiting_text": { "label": "Text for a blank amount" },
+        "empty_text": { "label": "Text when there are no entries" },
+        "stats_header": { "content": "Shirts and contribution" },
+        "shirts_label": { "label": "Shirts label" },
+        "shirts_needed": {
+          "label": "Shirts needed",
+          "info": "Enter a number only when it comes from real costs. Leave blank to show TBD."
+        },
+        "contribution_label": { "label": "Contribution label" },
+        "contribution_per_shirt": { "label": "Contribution per shirt" },
+        "footnote": { "label": "Footnote" }
+      },
+      "blocks": {
+        "entry": {
+          "name": "Ledger entry",
+          "settings": {
+            "date": { "label": "Date", "info": "For example 2026-11-21." },
+            "type": {
+              "label": "Type",
+              "info": "Record VAT as VAT (not income). Never record VAT as project income.",
+              "options__expense": "Expense",
+              "options__income": "Project income",
+              "options__vat": "VAT (not income)"
+            },
+            "category": {
+              "label": "Category",
+              "options__domain": "Domain",
+              "options__software": "Software",
+              "options__shopify": "Shopify",
+              "options__samples": "Samples",
+              "options__garments": "Garments",
+              "options__printing": "Printing",
+              "options__packaging": "Packaging",
+              "options__shipping": "Shipping",
+              "options__ads": "Ads",
+              "options__design_tools": "Design tools",
+              "options__events": "Events",
+              "options__sales": "Sales",
+              "options__other": "Other"
+            },
+            "description": { "label": "Description" },
+            "vendor": { "label": "Vendor" },
+            "amount_net": {
+              "label": "Amount before VAT",
+              "info": "Enter it exactly as on the receipt, for example 12.30. Leave blank until you have a real receipt."
+            },
+            "vat": { "label": "VAT" },
+            "total": { "label": "Total" },
+            "payment_method": {
+              "label": "Paid with",
+              "info": "The method only, for example Card or Bank transfer. Never enter card or account numbers."
+            },
+            "source_label": { "label": "Receipt label" },
+            "source_link": {
+              "label": "Receipt link",
+              "info": "Link only to a public, redacted copy. Remove personal details before you publish a receipt."
+            },
+            "notes": { "label": "Notes" }
+          }
+        }
+      }
+    },
+    "wic_essay": {
+      "name": "WIC essay",
+      "settings": {
+        "numbered": { "label": "Number the chapters" },
+        "number_start": { "label": "First chapter number" }
+      },
+      "blocks": {
+        "chapter": {
+          "name": "Chapter",
+          "settings": {
+            "heading": { "label": "Heading" },
+            "text": { "label": "Text" }
+          }
+        },
+        "quote": {
+          "name": "Pull quote",
+          "settings": {
+            "text": { "label": "Quote" },
+            "cite": { "label": "Attribution" }
+          }
+        },
+        "cta": {
+          "name": "Call to action",
+          "settings": {
+            "heading": { "label": "Heading" },
+            "text": { "label": "Text" },
+            "button_label": { "label": "Button label" },
+            "button_link": { "label": "Button link" }
+          }
+        }
+      }
+    },
     "rich-text": {
       "name": "Rich text",
       "settings": {

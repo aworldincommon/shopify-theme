@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Manifesto",
+        "heading": "Manifesto",
+        "intro": "",
+        "show_page_content": true,
+        "emblem": "roof",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "essay": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Good intentions, different timelines",
+            "text": "<p>Whether an idea comes from the left or the right, it often begins with a belief that people should be able to live meaningful, secure, flourishing lives. Most people are not trying to make the world worse. They are disagreeing about how to improve it—and about when the improvement should arrive.</p><p>One political instinct looks toward the long term. It wants to build the technology, infrastructure, institutions, and wealth that might make a better future possible. It is willing to accept sacrifice now in the name of what could exist later.</p><p>Another political instinct looks at the present. It asks who is suffering now, who is being asked to wait, and who is being sacrificed for someone else's vision of tomorrow. It is suspicious of futures that require people living today to endure indefinitely.</p><p>Both instincts contain something important. A society that only manages the present may never build the capacity to change. A society that sacrifices the present for a distant future can lose sight of the people it claims to be serving.</p>"
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "The future cannot come at this cost",
+            "text": "<p>The future is not a moral blank cheque.</p><p>We can only ask people to sacrifice so much of their time, security, health, freedom, and dignity for a promise that may arrive decades from now. Progress that requires abandoning the living is not automatically progress.</p><p>We need to build for tomorrow without treating today as disposable. That means improving the conditions people live in now while developing the tools, institutions, and communities that make a better future possible.</p><p>The question is not whether we should care about the future or the present. The question is why we keep treating them as enemies.</p>"
+          }
+        },
+        "chapter_3": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Progress with a human timeline",
+            "text": "<p>World in Common is interested in projects that do both:</p><ul><li>reduce suffering now</li><li>build long-term capacity</li><li>create useful infrastructure that people can access today</li><li>protect the future without making the present unbearable</li><li>measure progress by human flourishing, not only by growth or technical achievement</li></ul><p>A better system should not require us to choose between hope and immediate care.</p>"
+          }
+        },
+        "quote_4": {
+          "type": "quote",
+          "settings": {
+            "text": "Build the future without abandoning the present.",
+            "cite": ""
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "chapter_2",
+        "chapter_3",
+        "quote_4"
+      ],
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "header",
+    "essay"
+  ]
+}

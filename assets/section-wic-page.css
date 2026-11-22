@@ -1,0 +1,235 @@
+/*
+  World in Common editorial pages: page header and essay sections.
+  Shares primitives (.wic-mono, .wic-rule--stamp, .wic-top-rule, .wic-emblem) with section-wic-editorial.css.
+  Note: Dawn sets 1rem = 10px.
+*/
+
+/* Page header */
+
+.wic-page-header__kicker {
+  margin: 0 0 1.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.2rem solid rgb(var(--color-foreground));
+}
+
+.wic-page-header__grid {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.wic-page-header__title {
+  margin: 0 0 1.6rem;
+  font-size: clamp(5.2rem, 12vw, 14rem);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: rgb(var(--wic-burgundy));
+  text-wrap: balance;
+  /* Break between words only. A long word such as TRANSPARENCY must not split mid-word. */
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
+/* Next to an emblem the title column is narrower, so the type is smaller. */
+.wic-page-header__grid--emblem .wic-page-header__title {
+  font-size: clamp(4.4rem, 8vw, 11rem);
+}
+
+.wic-page-header__intro {
+  max-width: 34ch;
+  font-size: clamp(2.2rem, 2.8vw, 3rem);
+  line-height: 1.3;
+}
+
+.wic-page-header__intro > :first-child,
+.wic-page-header__content > :first-child {
+  margin-top: 0;
+}
+
+.wic-page-header__intro > :last-child,
+.wic-page-header__content > :last-child {
+  margin-bottom: 0;
+}
+
+.wic-page-header__content {
+  margin-top: 2.4rem;
+  max-width: 62ch;
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+.wic-page-header__emblem {
+  max-width: 32rem;
+}
+
+@media screen and (min-width: 750px) {
+  .wic-page-header__grid--emblem {
+    grid-template-columns: 8fr 4fr;
+    align-items: end;
+    column-gap: 4.8rem;
+  }
+
+  .wic-page-header__emblem {
+    max-width: none;
+  }
+}
+
+/* Essay */
+
+.wic-essay__chapter {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: 5.6rem;
+}
+
+.wic-essay__number {
+  margin: 0 0 0.8rem;
+}
+
+.wic-essay__heading {
+  margin: 0;
+  font-size: clamp(2.8rem, 3.6vw, 4.4rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.wic-essay__text {
+  max-width: 64ch;
+  font-size: 1.8rem;
+  line-height: 1.65;
+}
+
+.wic-essay__text > :first-child {
+  margin-top: 0;
+}
+
+.wic-essay__text > :last-child {
+  margin-bottom: 0;
+}
+
+.wic-essay__text strong {
+  font-weight: 700;
+}
+
+.wic-essay__text a {
+  color: rgb(var(--wic-burgundy));
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.3rem;
+}
+
+.wic-essay__text a:hover {
+  text-decoration-thickness: 0.2rem;
+}
+
+.wic-essay__text ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.wic-essay__text li {
+  position: relative;
+  padding-left: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+/* A burgundy slash instead of a bullet, as on the homepage topics. */
+.wic-essay__text li::before {
+  content: '/';
+  position: absolute;
+  left: 0;
+  color: rgb(var(--wic-burgundy));
+  font-weight: 700;
+}
+
+.wic-essay__quote {
+  margin: 0 0 5.6rem;
+  padding: 2.4rem 0 2.4rem 2.4rem;
+  border-left: 1.2rem solid rgb(var(--wic-burgundy));
+}
+
+/* Reset Dawn's default blockquote: italic text and a thin left rule. */
+.wic-essay__quote-text {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: normal;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(3.2rem, 5.6vw, 6.4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgb(var(--wic-burgundy));
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.wic-essay__quote-cite {
+  margin-top: 1.6rem;
+}
+
+.wic-essay__cta {
+  display: grid;
+  gap: 2.4rem;
+  margin: 0 0 5.6rem;
+  padding: 3.2rem;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  box-shadow: 0.8rem 0.8rem 0 rgb(17, 17, 17);
+}
+
+.wic-essay__cta-heading {
+  margin: 0;
+  font-size: clamp(3.2rem, 5vw, 5.6rem);
+  line-height: 0.95;
+  color: rgb(var(--color-foreground));
+}
+
+.wic-essay__cta-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+}
+
+.wic-essay__cta-text {
+  max-width: 56ch;
+  font-size: 1.8rem;
+  line-height: 1.55;
+}
+
+.wic-essay__cta-text > :first-child {
+  margin-top: 0;
+}
+
+.wic-essay__cta-text > :last-child {
+  margin-bottom: 0;
+}
+
+.wic-essay__cta .button {
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .wic-essay__chapter {
+    grid-template-columns: 4fr 8fr;
+    column-gap: 4.8rem;
+  }
+
+  .wic-essay__aside {
+    position: sticky;
+    top: 2.4rem;
+    align-self: start;
+  }
+
+  .wic-essay__quote {
+    margin-left: calc(33.333% + 1.6rem);
+    padding-left: 3.2rem;
+  }
+
+  .wic-essay__cta {
+    grid-template-columns: 5fr 7fr;
+    align-items: start;
+    column-gap: 4.8rem;
+    padding: 4.8rem;
+  }
+}

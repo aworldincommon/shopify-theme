@@ -276,6 +276,41 @@
       "price_tbd": "TBD",
       "photo_pending": "Photograph pending. No mockups, no stock images."
     },
+    "wic_ledger_table": {
+      "date": "Date",
+      "type": "Type",
+      "category": "Category",
+      "description": "Description",
+      "vendor": "Vendor",
+      "amount_net": "Before VAT",
+      "vat": "VAT",
+      "total": "Total",
+      "payment": "Paid with",
+      "source": "Receipt",
+      "notes": "Notes",
+      "source_default": "See receipt",
+      "tbd": "TBD",
+      "types": {
+        "expense": "Expense",
+        "income": "Project income",
+        "vat": "VAT (not income)"
+      },
+      "categories": {
+        "domain": "Domain",
+        "software": "Software",
+        "shopify": "Shopify",
+        "samples": "Samples",
+        "garments": "Garments",
+        "printing": "Printing",
+        "packaging": "Packaging",
+        "shipping": "Shipping",
+        "ads": "Ads",
+        "design_tools": "Design tools",
+        "events": "Events",
+        "sales": "Sales",
+        "other": "Other"
+      }
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",

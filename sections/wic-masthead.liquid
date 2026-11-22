@@ -30,7 +30,7 @@
   <div class="page-width section-{{ section.id }}-padding">
     <div class="wic-masthead__dateline wic-mono">
       {%- if section.settings.dateline_left != blank -%}
-        <p class="wic-masthead__dateline-item wic-accent-army">{{ section.settings.dateline_left | escape }}</p>
+        <p class="wic-masthead__dateline-item wic-accent-burgundy">{{ section.settings.dateline_left | escape }}</p>
       {%- endif -%}
       {%- if section.settings.dateline_right != blank -%}
         <p class="wic-masthead__dateline-item">{{ section.settings.dateline_right | escape }}</p>
@@ -42,23 +42,37 @@
     <div class="wic-rule wic-rule--stamp" aria-hidden="true"></div>
 
     <div class="wic-masthead__grid">
-      {%- if section.settings.stamp != blank -%}
-        <div class="wic-masthead__stamp-col">
+      <div class="wic-masthead__stamp-col">
+        {%- if section.settings.stamp != blank -%}
           <p class="wic-stamp wic-mono">{{ section.settings.stamp | escape }}</p>
-        </div>
-      {%- endif -%}
+        {%- endif -%}
+      </div>
 
-      {%- if section.settings.statement != blank -%}
-        <h2 class="wic-masthead__statement" id="WicMasthead-{{ section.id }}">
-          {{ section.settings.statement | escape }}
-        </h2>
-      {%- endif -%}
+      <div class="wic-masthead__copy">
+        {%- if section.settings.statement != blank -%}
+          <h2 class="wic-masthead__statement" id="WicMasthead-{{ section.id }}">
+            {{ section.settings.statement | escape }}
+          </h2>
+        {%- endif -%}
 
-      {%- if section.settings.button_label != blank -%}
-        <div class="wic-masthead__action">
-          <a href="{{ button_link }}" class="button button--primary">
-            {{- section.settings.button_label | escape -}}
-          </a>
+        {%- if section.settings.button_label != blank -%}
+          <div class="wic-masthead__action">
+            <a href="{{ button_link }}" class="button button--primary">
+              {{- section.settings.button_label | escape -}}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.emblem_image != blank or section.settings.emblem != 'none' -%}
+        <div class="wic-masthead__emblem">
+          {%- render 'wic-emblem',
+            image: section.settings.emblem_image,
+            emblem: section.settings.emblem,
+            class: 'wic-emblem',
+            loading: 'eager',
+            sizes: '(min-width: 750px) 34vw, 80vw'
+          -%}
         </div>
       {%- endif -%}
     </div>
@@ -113,6 +127,28 @@
       "id": "button_link",
       "label": "t:sections.wic_masthead.settings.button_link.label",
       "info": "t:sections.wic_masthead.settings.button_link.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.wic_shared.settings.emblem_header.content"
+    },
+    {
+      "type": "select",
+      "id": "emblem",
+      "label": "t:sections.wic_shared.settings.emblem.label",
+      "info": "t:sections.wic_shared.settings.emblem.info",
+      "options": [
+        { "value": "arch", "label": "t:sections.wic_shared.settings.emblem.options__arch" },
+        { "value": "roof", "label": "t:sections.wic_shared.settings.emblem.options__roof" },
+        { "value": "none", "label": "t:sections.wic_shared.settings.emblem.options__none" }
+      ],
+      "default": "arch"
+    },
+    {
+      "type": "image_picker",
+      "id": "emblem_image",
+      "label": "t:sections.wic_shared.settings.emblem_image.label",
+      "info": "t:sections.wic_shared.settings.emblem_image.info"
     },
     {
       "type": "color_scheme",

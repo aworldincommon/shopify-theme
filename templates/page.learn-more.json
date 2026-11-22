@@ -1,0 +1,110 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Reading list",
+        "heading": "Learn More",
+        "intro": "<p>World in Common is a starting point, not a complete theory. This page collects books, organisations, tools, and projects that have influenced the questions we ask.</p><p>We do not agree with everything any author or organisation says. These are invitations to explore, not approved doctrines.</p>",
+        "show_page_content": true,
+        "emblem": "none",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "essay": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Start here",
+            "text": "<p><strong>The Man Who Quit Money — Mark Sundeen</strong></p><p>The first book we recommend.</p><p>This book follows Daniel Suelo, who stopped using money and lived through foraging, sharing, volunteering, reuse, and community. It raises a question that sits close to the centre of World in Common:</p><p><strong>How much of our relationship with money is necessary—and how much have we simply accepted by default?</strong></p><p>The book is not a simple instruction to abandon money. Its more useful contribution is the tension between individual freedom, community, responsibility, and the practical difficulty of living differently.</p><p>Our own position is different from Suelo’s. We are interested in the question without pretending that everyone should live in a cave or reject all exchange. We are interested in building alternatives that let people participate in society without being completely controlled by its dominant systems.</p>"
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Money and financial freedom",
+            "text": "<ul><li><a href=\"https://hrf.org/program/financial-freedom/\" title=\"Human Rights Foundation — Financial Freedom\">Human Rights Foundation — Financial Freedom</a> — education and grants supporting financial tools for activists and civil society.</li><li><a href=\"https://progressivebitcoiner.org/\" title=\"Progressive Bitcoiner\">Progressive Bitcoiner</a> — resources exploring Bitcoin through social justice and human-rights perspectives.</li><li><a href=\"https://btcmap.org/\" title=\"BTC Map\">BTC Map</a> — an open map of places that accept Bitcoin, built on OpenStreetMap data.</li><li><a href=\"https://bitcoin.org/bitcoin.pdf\" title=\"Bitcoin: A Peer-to-Peer Electronic Cash System\">Bitcoin: A Peer-to-Peer Electronic Cash System</a> — the original Bitcoin white paper.</li><li><a href=\"https://www.bportugal.pt/en/page/crypto-assets\" title=\"Banco de Portugal — Cryptoassets\">Banco de Portugal — Cryptoassets</a> — official Portuguese information and warnings.</li><li><a href=\"https://info.portaldasfinancas.gov.pt/\" title=\"Autoridade Tributária — Cryptoassets\">Autoridade Tributária — Cryptoassets</a> — official Portuguese tax information. Search for “Criptoativos”.</li></ul>"
+          }
+        },
+        "chapter_3": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Community and alternative ways of living",
+            "text": "<ul><li><a href=\"https://www.ic.org/\" title=\"Foundation for Intentional Community\">Foundation for Intentional Community</a> — communities, co-living, cohousing, ecovillages, and resources for starting or joining intentional communities.</li><li><a href=\"https://ecovillage.org/\" title=\"Global Ecovillage Network\">Global Ecovillage Network</a> — a global network connecting regenerative communities and initiatives.</li><li><a href=\"https://www.shareable.net/\" title=\"Shareable\">Shareable</a> — practical ideas about sharing, co-ops, platform co-operativism, and community ownership.</li><li><a href=\"https://www.cltweb.org/\" title=\"Community Land Trust Network\">Community Land Trust Network</a> — models for protecting land and housing from pure speculation.</li></ul>"
+          }
+        },
+        "chapter_4": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Open source and shared tools",
+            "text": "<ul><li><a href=\"https://opensource.org/\" title=\"Open Source Initiative\">Open Source Initiative</a> — what “open source” legally means and how approved licences work.</li><li><a href=\"https://sfconservancy.org/\" title=\"Software Freedom Conservancy\">Software Freedom Conservancy</a> — supporting ethical technology, software freedom, copyleft, and the right to repair, improve, and reinstall software.</li><li><a href=\"https://codeberg.org/\" title=\"Codeberg\">Codeberg</a> — a community-oriented home for open-source software projects.</li><li><a href=\"https://www.fsf.org/\" title=\"Free Software Foundation\">Free Software Foundation</a> — software freedom, user rights, and the GNU project.</li></ul>"
+          }
+        },
+        "chapter_5": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Books to explore next",
+            "text": "<p><strong>Money, debt, and economic systems</strong></p><ul><li>Debt: The First 5,000 Years — David Graeber</li><li>The Dawn of Everything — David Graeber and David Wengrow</li><li>Small Is Beautiful — E. F. Schumacher</li><li>The Price of Tomorrow — Jeff Booth</li><li>The Creature from Jekyll Island — G. Edward Griffin — read critically; useful for understanding one influential critique of central banking, but not a neutral account.</li></ul><p><strong>Community and alternative living</strong></p><ul><li>The Good Life — Helen and Scott Nearing</li><li>Deep Economy — Bill McKibben</li><li>How to Build a Regenerative Village</li><li>The Art of Gathering — Priya Parker</li><li>Emergent Strategy — adrienne maree brown</li></ul><p><strong>Technology, power, and open source</strong></p><ul><li>Free Software, Free Society — Richard M. Stallman — important, but read critically and separately from the person.</li><li>The Cathedral and the Bazaar — Eric S. Raymond</li><li>The Age of Surveillance Capitalism — Shoshana Zuboff</li><li>The Master Switch — Tim Wu</li></ul><p><strong>Fiction and imagination</strong></p><ul><li>The Dispossessed — Ursula K. Le Guin</li><li>Parable of the Sower — Octavia E. Butler</li><li>Always Coming Home — Ursula K. Le Guin</li></ul>"
+          }
+        },
+        "chapter_6": {
+          "type": "chapter",
+          "settings": {
+            "heading": "A note on recommendations",
+            "text": "<p>Some links may eventually become affiliate links. If that happens, we will label them clearly. We will not pretend that an affiliate recommendation is independent.</p><p>We also distinguish between:</p><ul><li>ideas we find useful</li><li>organisations we respect</li><li>claims we have verified</li><li>claims we are still investigating</li></ul><p>The point of this page is not to create a canon. It is to make the path visible so other people can explore, disagree, and add better sources.</p>"
+          }
+        },
+        "chapter_7": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Still learning",
+            "text": "<p>I am always learning, and this project is not built around the idea that I already have all the answers.</p><p>If you have read a book, article, essay, research paper, or watched something that you think belongs in these conversations, send it to me. I will publish my reading list and keep adding to it as I explore new ideas.</p><p>You can also tell me:</p><ul><li>what I should read next</li><li>what you think I have misunderstood</li><li>what subjects I should explore</li><li>what communities or projects I should know about</li><li>what solutions are already working somewhere else</li></ul><p>You do not have to agree with the project to contribute to it. Teach me something new, challenge an assumption, or point me toward a perspective I have missed.</p>"
+          }
+        },
+        "quote_8": {
+          "type": "quote",
+          "settings": {
+            "text": "Let’s do this together.",
+            "cite": ""
+          }
+        },
+        "cta_9": {
+          "type": "cta",
+          "settings": {
+            "heading": "Contribute",
+            "text": "<p>World in Common is built in public. You do not need to be part of an organisation, have a platform, or agree with every idea here to contribute.</p><p>World in Common is not meant to be one person broadcasting a finished worldview. It is an attempt to build a better understanding in public, with other people.</p>",
+            "button_label": "Send something",
+            "button_link": "/pages/contribute",
+            "color_scheme": "scheme-4"
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "chapter_2",
+        "chapter_3",
+        "chapter_4",
+        "chapter_5",
+        "chapter_6",
+        "chapter_7",
+        "quote_8",
+        "cta_9"
+      ],
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "header",
+    "essay"
+  ]
+}

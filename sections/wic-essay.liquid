@@ -1,0 +1,202 @@
+{{ 'section-wic-editorial.css' | asset_url | stylesheet_tag }}
+{{ 'section-wic-page.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+  Long-form editorial copy. Chapters put the heading in a narrow left column and the text in a
+  readable measure on the right. Quotes and calls to action break the column, like a pull quote in print.
+{%- endcomment -%}
+<div class="wic-essay color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- assign chapter_number = section.settings.number_start | minus: 1 -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'chapter' -%}
+          {%- assign chapter_number = chapter_number | plus: 1 -%}
+          <div class="wic-essay__chapter wic-top-rule" {{ block.shopify_attributes }}>
+            <div class="wic-essay__aside">
+              {%- if section.settings.numbered -%}
+                <p class="wic-essay__number wic-mono wic-accent-burgundy" aria-hidden="true">
+                  {%- if chapter_number < 10 %}0{% endif %}{{ chapter_number -}}
+                </p>
+              {%- endif -%}
+              {%- if block.settings.heading != blank -%}
+                <h2 class="wic-essay__heading">{{ block.settings.heading | escape }}</h2>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.text != blank -%}
+              <div class="wic-essay__text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+
+        {%- when 'quote' -%}
+          {%- if block.settings.text != blank -%}
+            <figure class="wic-essay__quote" {{ block.shopify_attributes }}>
+              <blockquote class="wic-essay__quote-text">{{ block.settings.text | escape | newline_to_br }}</blockquote>
+              {%- if block.settings.cite != blank -%}
+                <figcaption class="wic-essay__quote-cite wic-mono">{{ block.settings.cite | escape }}</figcaption>
+              {%- endif -%}
+            </figure>
+          {%- endif -%}
+
+        {%- when 'cta' -%}
+          <div class="wic-essay__cta color-{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h2 class="wic-essay__cta-heading">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            <div class="wic-essay__cta-body">
+              {%- if block.settings.text != blank -%}
+                <div class="wic-essay__cta-text rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                <a href="{{ block.settings.button_link }}" class="button button--primary">
+                  {{- block.settings.button_label | escape -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.wic_essay.name",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 40,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "numbered",
+      "label": "t:sections.wic_essay.settings.numbered.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "number_start",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "label": "t:sections.wic_essay.settings.number_start.label",
+      "default": 1
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "t:sections.wic_essay.blocks.chapter.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.wic_essay.blocks.chapter.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.wic_essay.blocks.chapter.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "t:sections.wic_essay.blocks.quote.name",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.wic_essay.blocks.quote.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "cite",
+          "label": "t:sections.wic_essay.blocks.quote.settings.cite.label"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "t:sections.wic_essay.blocks.cta.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.wic_essay.blocks.cta.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.wic_essay.blocks.cta.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:sections.wic_essay.blocks.cta.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.wic_essay.blocks.cta.settings.button_link.label"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-4"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wic_essay.name",
+      "blocks": [{ "type": "chapter" }, { "type": "quote" }]
+    }
+  ]
+}
+{% endschema %}

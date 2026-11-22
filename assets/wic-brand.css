@@ -1,0 +1,58 @@
+/*
+  World in Common site-wide brand layer. Loads after base.css on every page.
+  Streetwear type: the heading font is a condensed poster face, so display headings run uppercase.
+  Burgundy leads: header rule, link hover, text selection and focus.
+  Note: Dawn sets 1rem = 10px.
+*/
+
+:root {
+  --wic-burgundy: 163, 22, 26;
+}
+
+h1,
+h2,
+.h0,
+.h1,
+.h2 {
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+/* A thick burgundy rule under the header, like a printed masthead. */
+.header-wrapper--border-bottom {
+  border-bottom: 0.4rem solid rgb(var(--wic-burgundy));
+}
+
+.header__menu-item:hover span,
+.header__active-menu-item,
+.link:hover,
+.footer a:hover {
+  text-decoration-color: rgb(var(--wic-burgundy));
+}
+
+.header__menu-item:hover span {
+  color: rgb(var(--wic-burgundy));
+}
+
+::selection {
+  background-color: rgb(var(--wic-burgundy));
+  color: #f4f0e8;
+}
+
+/* Buttons: hard offset shadow on hover, like a sticker lifting off the page. */
+.button--primary {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.button--primary:hover {
+  transform: translate(-0.2rem, -0.2rem);
+  box-shadow: 0.4rem 0.4rem 0 rgb(17, 17, 17);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button--primary,
+  .button--primary:hover {
+    transition: none;
+    transform: none;
+  }
+}

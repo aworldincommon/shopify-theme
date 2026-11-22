@@ -1,0 +1,165 @@
+/*
+  World in Common public ledger table.
+  A till-receipt look: monospace numbers, dashed rules, burgundy for anything that is not real yet.
+  Note: Dawn sets 1rem = 10px.
+*/
+
+.wic-ledger-table__head {
+  display: grid;
+  gap: 3.2rem;
+  margin-bottom: 4rem;
+}
+
+.wic-ledger-table__kicker {
+  margin: 0 0 1.2rem;
+}
+
+.wic-ledger-table__heading {
+  margin: 0;
+  font-size: clamp(3.6rem, 6vw, 7.2rem);
+  line-height: 0.95;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.wic-ledger-table__stats {
+  display: grid;
+  gap: 1.6rem;
+  margin: 0;
+}
+
+.wic-ledger-table__stat {
+  padding: 1.6rem 2rem;
+  border: 0.3rem solid rgb(var(--wic-burgundy));
+}
+
+.wic-ledger-table__stat dt {
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+.wic-ledger-table__stat dd {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(4rem, 6vw, 6.4rem);
+  line-height: 1;
+  color: rgb(var(--wic-burgundy));
+}
+
+@media screen and (min-width: 750px) {
+  .wic-ledger-table__head {
+    grid-template-columns: 7fr 5fr;
+    align-items: end;
+    column-gap: 4.8rem;
+  }
+}
+
+/* Table: scrolls inside its own frame on narrow screens, so the page never scrolls sideways. */
+
+.wic-ledger-table__scroll {
+  overflow-x: auto;
+  border-top: 0.2rem dashed rgb(var(--color-foreground));
+  border-bottom: 0.2rem dashed rgb(var(--color-foreground));
+}
+
+.wic-ledger-table__scroll:focus-visible {
+  outline: 0.2rem solid rgb(var(--wic-burgundy));
+  outline-offset: 0.4rem;
+}
+
+.wic-ledger-table__table {
+  width: 100%;
+  min-width: 110rem;
+  border-collapse: collapse;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  table-layout: auto;
+  box-shadow: none;
+}
+
+.wic-ledger-table__table caption {
+  padding: 1.2rem 0;
+  text-align: left;
+}
+
+.wic-ledger-table__table th,
+.wic-ledger-table__table td {
+  padding: 1.2rem 1.2rem 1.2rem 0;
+  border: 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.wic-ledger-table__table thead th {
+  border-bottom: 0.1rem dashed rgba(var(--color-foreground), 0.5);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.wic-ledger-table__table tbody tr + tr td {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+}
+
+.wic-ledger-table__num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.wic-ledger-table__table th.wic-ledger-table__num,
+.wic-ledger-table__table td.wic-ledger-table__num {
+  text-align: right;
+}
+
+.wic-ledger-table__awaiting {
+  color: rgb(var(--wic-burgundy));
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.wic-ledger-table__tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border: 0.1rem solid currentColor;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* VAT is shown, but visibly set apart from income and expenses. */
+.wic-ledger-table__row--vat {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.wic-ledger-table__row--income .wic-ledger-table__tag {
+  color: rgb(var(--wic-burgundy));
+}
+
+.wic-ledger-table__link {
+  color: rgb(var(--wic-burgundy));
+  text-underline-offset: 0.3rem;
+}
+
+.wic-ledger-table__empty {
+  padding: 4rem 2.4rem;
+  border: 0.3rem dashed rgb(var(--wic-burgundy));
+  text-align: center;
+}
+
+.wic-ledger-table__empty-text {
+  margin: 0 auto;
+  max-width: 40ch;
+  font-size: 1.8rem;
+}
+
+.wic-ledger-table__footnote {
+  margin-top: 2.4rem;
+  max-width: 64ch;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.wic-ledger-table__footnote > :first-child {
+  margin-top: 0;
+}
