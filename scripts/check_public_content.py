@@ -18,7 +18,7 @@ ALLOWLIST = ROOT / ".privacy-allowlist"
 PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("email address", re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.I)),
     ("phone number", re.compile(r"(?i)\b(?:phone|telephone|tel\.?|mobile|whatsapp|telefone|telemóvel|telemovel)\s*[:#-]?\s*\+?\d[\d () .-]{6,}\d\b")),
-    ("address with street number", re.compile(r"(?i)\b(?:address|morada|rua|street|avenue|avenida|av\.)\b[^\n]{0,100}\b\d{1,5}\b")),
+    ("address with street number", re.compile(r"(?i)(?:\b(?:rua|street|avenue|avenida|av\.)\b[^\n]{0,100}\b\d{2,5}\b|\baddress\s*[:#-]\s*[^\n]{0,100}\b\d{2,5}\b)")),
     ("Portuguese NIF", re.compile(r"(?i)\b(?:nif|tax\s*id)\s*[:#-]?\s*\d{9}\b")),
     ("IBAN or bank identifier", re.compile(r"\b[A-Z]{2}\d{2}[A-Z0-9]{11,30}\b")),
     ("private key", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----")),
