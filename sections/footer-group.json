@@ -4,8 +4,18 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "footer_menu": {
+          "type": "link_list",
+          "settings": {
+            "heading": "More",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "footer_menu"
+      ],
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
