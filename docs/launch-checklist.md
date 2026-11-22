@@ -19,13 +19,13 @@ The page templates were assigned before launch with the Admin API (`pageUpdate` 
 | `about` | `about` |
 | `learn-more` | `learn-more` |
 | `manifesto` | `manifesto` |
-| `open-source` | `open-source` |
 | `transparency-ledger` | `transparency-ledger` |
 
 If a page shows the plain default layout, set its **Theme template** in **Online Store > Pages**. After publish, the list shows these templates.
 
 ## 3. Final checks
 
+- The Open source page is now part two of the Manifesto. Delete or hide the `open-source` page in **Online Store > Pages**, then add a URL redirect from `/pages/open-source` to `/pages/manifesto`.
 - Check that the main menu and footer menu in **Online Store > Navigation** link to every page.
 - Connect the `aworldincommon.com` domain.
 - Remove the storefront password only when you are ready to go public.
