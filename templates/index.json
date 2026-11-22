@@ -1,75 +1,158 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "masthead": {
+      "type": "wic-masthead",
+      "settings": {
+        "dateline_left": "Draft edition",
+        "dateline_right": "Media / Research / Objects",
+        "nameplate": "World in Common",
+        "statement": "Building systems that help people belong.",
+        "stamp": "First object in development",
+        "button_label": "See the first object",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 72
+      }
+    },
+    "specimen": {
+      "type": "wic-product-specimen",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "line_cost": {
+          "type": "line",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "label": "Production cost",
+            "value": "Awaiting real costs",
+            "emphasis": false
           }
         },
-        "button": {
-          "type": "buttons",
+        "line_contribution": {
+          "type": "line",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "label": "Contribution to the project",
+            "value": "Awaiting real costs",
+            "emphasis": false
+          }
+        },
+        "line_status": {
+          "type": "line",
+          "settings": {
+            "label": "Status",
+            "value": "Not for sale yet",
+            "emphasis": true
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "line_cost",
+        "line_contribution",
+        "line_status"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "product_handle": "the-peoples-cafe-t-shirt",
+        "anchor_id": "object-001",
+        "kicker": "Object 001 / in development",
+        "title": "The People’s Cafe T-Shirt",
+        "object_number": "001",
+        "text": "<p>Named for the places where people still sit down together. It is not on sale yet. Before it is, every line of this receipt gets a real number.</p>",
+        "show_price": true,
+        "receipt_heading": "Receipt / Object 001",
+        "receipt_footnote": "No numbers until they are real numbers.",
+        "link_label": "See the shirt",
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 80
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "topics": {
+      "type": "wic-topics",
+      "blocks": {
+        "topic_1": {
+          "type": "topic",
+          "settings": {
+            "topic": "Community and belonging"
+          }
+        },
+        "topic_2": {
+          "type": "topic",
+          "settings": {
+            "topic": "Human-scale living"
+          }
+        },
+        "topic_3": {
+          "type": "topic",
+          "settings": {
+            "topic": "Alternative economic systems"
+          }
+        },
+        "topic_4": {
+          "type": "topic",
+          "settings": {
+            "topic": "What money and inflation do to people"
+          }
+        },
+        "topic_5": {
+          "type": "topic",
+          "settings": {
+            "topic": "Meaningful work"
+          }
+        },
+        "topic_6": {
+          "type": "topic",
+          "settings": {
+            "topic": "Global solidarity"
+          }
+        },
+        "topic_7": {
+          "type": "topic",
+          "settings": {
+            "topic": "Overlooked human rights problems"
+          }
+        },
+        "topic_8": {
+          "type": "topic",
+          "settings": {
+            "topic": "Practical ways to build better systems"
+          }
+        }
+      },
+      "block_order": [
+        "topic_1",
+        "topic_2",
+        "topic_3",
+        "topic_4",
+        "topic_5",
+        "topic_6",
+        "topic_7",
+        "topic_8"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "heading": "What we are looking at",
+        "text": "Less complaining about the machine. More notes on how to build a better one.",
+        "color_scheme": "scheme-2",
+        "padding_top": 56,
+        "padding_bottom": 80
+      }
+    },
+    "ledger": {
+      "type": "wic-ledger-callout",
+      "settings": {
+        "kicker": "Transparency ledger",
+        "heading": "Every cost, published from day zero.",
+        "text": "What things cost, what we charge, and how many we need to sell to keep the work alive.",
+        "note": "Entries are added as real receipts come in. Nothing is estimated.",
+        "button_label": "Open the ledger",
+        "button_link": "",
+        "color_scheme": "scheme-3",
+        "padding_top": 72,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "masthead",
+    "specimen",
+    "topics",
+    "ledger"
   ]
 }

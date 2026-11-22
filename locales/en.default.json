@@ -271,6 +271,11 @@
     }
   },
   "sections": {
+    "wic_home": {
+      "price_label": "Price",
+      "price_tbd": "TBD",
+      "photo_pending": "Photograph pending. No mockups, no stock images."
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",

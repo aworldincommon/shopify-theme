@@ -1,0 +1,273 @@
+{{ 'section-wic-editorial.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign specimen = section.settings.product
+  if specimen == blank and section.settings.product_handle != blank
+    assign specimen = all_products[section.settings.product_handle]
+  endif
+
+  assign has_product = false
+  if specimen != blank and specimen.id != blank
+    assign has_product = true
+  endif
+
+  if has_product
+    assign specimen_title = specimen.title
+  else
+    assign specimen_title = section.settings.title
+  endif
+
+  assign anchor_id = section.settings.anchor_id | handleize
+  if anchor_id == blank
+    assign anchor_id = 'specimen-' | append: section.id
+  endif
+-%}
+
+{%- comment -%}
+  A product specimen, staged like a magazine plate with its receipt. Only real Shopify data is shown:
+  a real photograph and price when a published product exists, otherwise an honest empty frame and TBD.
+{%- endcomment -%}
+<div class="wic-specimen color-{{ section.settings.color_scheme }} gradient" id="{{ anchor_id }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="wic-specimen__grid wic-top-rule">
+      {%- if section.settings.kicker != blank -%}
+        <p class="wic-specimen__kicker wic-mono wic-accent-army">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+
+      <h2 class="wic-specimen__title" id="WicSpecimen-{{ section.id }}">{{ specimen_title | escape }}</h2>
+
+      <div class="wic-specimen__media">
+        {%- if has_product and specimen.featured_media -%}
+          {%- assign media_alt = specimen.featured_media.alt | default: specimen.title -%}
+          <div class="wic-specimen__frame">
+            {{
+              specimen.featured_media.preview_image
+              | image_url: width: 1500
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(min-width: 990px) 58vw, (min-width: 750px) 55vw, calc(100vw - 3rem)',
+                widths: '375, 550, 750, 1100, 1500',
+                alt: media_alt
+            }}
+          </div>
+        {%- else -%}
+          <div class="wic-specimen__frame wic-specimen__frame--empty">
+            {%- if section.settings.object_number != blank -%}
+              <span class="wic-specimen__number" aria-hidden="true">{{ section.settings.object_number | escape }}</span>
+            {%- endif -%}
+            <p class="wic-specimen__pending wic-mono">{{ 'sections.wic_home.photo_pending' | t }}</p>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="wic-specimen__notes">
+        {%- if section.settings.text != blank -%}
+          <div class="wic-specimen__text rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        <div class="wic-receipt wic-mono">
+          {%- if section.settings.receipt_heading != blank -%}
+            <p class="wic-receipt__head">{{ section.settings.receipt_heading | escape }}</p>
+          {%- endif -%}
+          <dl class="wic-receipt__lines">
+            <div class="wic-receipt__line">
+              <dt>{{ 'sections.wic_home.price_label' | t }}</dt>
+              <dd class="wic-accent-burgundy">
+                {%- if has_product and section.settings.show_price -%}
+                  {%- if specimen.price_varies -%}
+                    {%- assign price_min = specimen.price_min | money -%}
+                    {{ 'products.product.price.from_price_html' | t: price: price_min }}
+                  {%- else -%}
+                    {{ specimen.price | money }}
+                  {%- endif -%}
+                {%- else -%}
+                  {{ 'sections.wic_home.price_tbd' | t }}
+                {%- endif -%}
+              </dd>
+            </div>
+            {%- for block in section.blocks -%}
+              <div
+                class="wic-receipt__line{% if block.settings.emphasis %} wic-receipt__line--strong{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <dt>{{ block.settings.label | escape }}</dt>
+                <dd class="{% unless block.settings.emphasis %}wic-accent-burgundy{% endunless %}">
+                  {{- block.settings.value | escape -}}
+                </dd>
+              </div>
+            {%- endfor -%}
+          </dl>
+          {%- if section.settings.receipt_footnote != blank -%}
+            <p class="wic-receipt__foot">{{ section.settings.receipt_footnote | escape }}</p>
+          {%- endif -%}
+        </div>
+
+        {%- if has_product and section.settings.link_label != blank -%}
+          <a href="{{ specimen.url }}" class="wic-specimen__link link wic-mono">
+            {{- section.settings.link_label | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.wic_product_specimen.name",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.wic_product_specimen.settings.product.label"
+    },
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "t:sections.wic_product_specimen.settings.product_handle.label",
+      "info": "t:sections.wic_product_specimen.settings.product_handle.info",
+      "default": "the-peoples-cafe-t-shirt"
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "t:sections.wic_product_specimen.settings.anchor_id.label",
+      "info": "t:sections.wic_product_specimen.settings.anchor_id.info",
+      "default": "object-001"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "t:sections.wic_product_specimen.settings.kicker.label",
+      "default": "Object 001 / in development"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.wic_product_specimen.settings.title.label",
+      "info": "t:sections.wic_product_specimen.settings.title.info",
+      "default": "The People’s Cafe T-Shirt"
+    },
+    {
+      "type": "text",
+      "id": "object_number",
+      "label": "t:sections.wic_product_specimen.settings.object_number.label",
+      "default": "001"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.wic_product_specimen.settings.text.label",
+      "default": "<p>Named for the places where people still sit down together. It is not on sale yet. Before it is, every line of this receipt gets a real number.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "t:sections.wic_product_specimen.settings.show_price.label",
+      "info": "t:sections.wic_product_specimen.settings.show_price.info",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "receipt_heading",
+      "label": "t:sections.wic_product_specimen.settings.receipt_heading.label",
+      "default": "Receipt / Object 001"
+    },
+    {
+      "type": "text",
+      "id": "receipt_footnote",
+      "label": "t:sections.wic_product_specimen.settings.receipt_footnote.label",
+      "default": "No numbers until they are real numbers."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:sections.wic_product_specimen.settings.link_label.label",
+      "default": "See the shirt"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "line",
+      "name": "t:sections.wic_product_specimen.blocks.line.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.wic_product_specimen.blocks.line.settings.label.label",
+          "default": "Production cost"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "t:sections.wic_product_specimen.blocks.line.settings.value.label",
+          "default": "Awaiting real costs"
+        },
+        {
+          "type": "checkbox",
+          "id": "emphasis",
+          "label": "t:sections.wic_product_specimen.blocks.line.settings.emphasis.label",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wic_product_specimen.name",
+      "blocks": [
+        {
+          "type": "line"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

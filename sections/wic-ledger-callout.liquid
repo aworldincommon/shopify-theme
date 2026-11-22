@@ -1,0 +1,139 @@
+{{ 'section-wic-editorial.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign ledger_link = section.settings.button_link
+  if ledger_link == blank
+    assign ledger_page = pages['transparency-ledger']
+    if ledger_page != blank and ledger_page.url != blank
+      assign ledger_link = ledger_page.url
+    endif
+  endif
+-%}
+
+{%- comment -%}
+  The transparency ledger is the project's trust mechanism, so it closes the page as a full-bleed band.
+  The button only renders when there is somewhere real to go.
+{%- endcomment -%}
+<div class="wic-ledger color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="wic-ledger__grid">
+      <div class="wic-ledger__main">
+        {%- if section.settings.kicker != blank -%}
+          <p class="wic-ledger__kicker wic-mono">{{ section.settings.kicker | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="wic-ledger__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      </div>
+
+      <div class="wic-ledger__aside">
+        {%- if section.settings.text != blank -%}
+          <p class="wic-ledger__text">{{ section.settings.text | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.note != blank -%}
+          <p class="wic-ledger__note wic-mono">{{ section.settings.note | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank and ledger_link != blank -%}
+          <a href="{{ ledger_link }}" class="button button--primary">
+            {{- section.settings.button_label | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.wic_ledger_callout.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "t:sections.wic_ledger_callout.settings.kicker.label",
+      "default": "Transparency ledger"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.wic_ledger_callout.settings.heading.label",
+      "default": "Every cost, published from day zero."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "t:sections.wic_ledger_callout.settings.text.label",
+      "default": "What things cost, what we charge, and how many we need to sell to keep the work alive."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "t:sections.wic_ledger_callout.settings.note.label",
+      "default": "Entries are added as real receipts come in. Nothing is estimated."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.wic_ledger_callout.settings.button_label.label",
+      "default": "Open the ledger"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.wic_ledger_callout.settings.button_link.label",
+      "info": "t:sections.wic_ledger_callout.settings.button_link.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-3"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wic_ledger_callout.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+{{ 'section-wic-editorial.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign nameplate = section.settings.nameplate | default: shop.name
+  assign button_link = section.settings.button_link
+  if button_link == blank
+    assign button_link = '#object-001'
+  endif
+-%}
+
+{%- comment -%}
+  The header already renders the store name as the page h1 on the homepage, so the nameplate is a
+  paragraph styled as a printed masthead and the statement carries the section heading.
+{%- endcomment -%}
+<div class="wic-masthead color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="wic-masthead__dateline wic-mono">
+      {%- if section.settings.dateline_left != blank -%}
+        <p class="wic-masthead__dateline-item wic-accent-army">{{ section.settings.dateline_left | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.dateline_right != blank -%}
+        <p class="wic-masthead__dateline-item">{{ section.settings.dateline_right | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <p class="wic-masthead__nameplate">{{ nameplate | escape }}</p>
+
+    <div class="wic-rule wic-rule--stamp" aria-hidden="true"></div>
+
+    <div class="wic-masthead__grid">
+      {%- if section.settings.stamp != blank -%}
+        <div class="wic-masthead__stamp-col">
+          <p class="wic-stamp wic-mono">{{ section.settings.stamp | escape }}</p>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.statement != blank -%}
+        <h2 class="wic-masthead__statement" id="WicMasthead-{{ section.id }}">
+          {{ section.settings.statement | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <div class="wic-masthead__action">
+          <a href="{{ button_link }}" class="button button--primary">
+            {{- section.settings.button_label | escape -}}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.wic_masthead.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "dateline_left",
+      "label": "t:sections.wic_masthead.settings.dateline_left.label",
+      "default": "Draft edition"
+    },
+    {
+      "type": "text",
+      "id": "dateline_right",
+      "label": "t:sections.wic_masthead.settings.dateline_right.label",
+      "default": "Media / Research / Objects"
+    },
+    {
+      "type": "text",
+      "id": "nameplate",
+      "label": "t:sections.wic_masthead.settings.nameplate.label",
+      "info": "t:sections.wic_masthead.settings.nameplate.info",
+      "default": "World in Common"
+    },
+    {
+      "type": "text",
+      "id": "statement",
+      "label": "t:sections.wic_masthead.settings.statement.label",
+      "default": "Building systems that help people belong."
+    },
+    {
+      "type": "text",
+      "id": "stamp",
+      "label": "t:sections.wic_masthead.settings.stamp.label",
+      "default": "First object in development"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.wic_masthead.settings.button_label.label",
+      "default": "See the first object"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.wic_masthead.settings.button_link.label",
+      "info": "t:sections.wic_masthead.settings.button_link.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wic_masthead.name"
+    }
+  ]
+}
+{% endschema %}
