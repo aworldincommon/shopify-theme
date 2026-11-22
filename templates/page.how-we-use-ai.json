@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Disclosure",
+        "heading": "",
+        "intro": "<p>Content on this site is made with AI. We say so openly.</p>",
+        "show_page_content": true,
+        "emblem": "roof",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "essay": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "The risks are real",
+            "text": "<p>AI can damage the social fabric. It can concentrate power in fewer hands. It can replace work that people depend on.</p>"
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Social media is the comparison",
+            "text": "<p>Social media turned people against each other. It also raised awareness.</p>"
+          }
+        },
+        "chapter_3": {
+          "type": "chapter",
+          "settings": {
+            "heading": "A tool for good",
+            "text": "<p>A tool can be used for bad or for good. We try to use AI for good: for awareness, for education, and for solidarity.</p>"
+          }
+        },
+        "chapter_4": {
+          "type": "chapter",
+          "settings": {
+            "heading": "What we promise",
+            "text": "<p>We will be transparent about what is AI-assisted. We will not pretend that AI removes the need for human judgement, maintenance, or accountability.</p><p>Read more in <a href=\"/pages/open-source\" title=\"Open source\">Open Source Is a Commons</a>.</p>"
+          }
+        },
+        "cta_5": {
+          "type": "cta",
+          "settings": {
+            "heading": "Contribute",
+            "text": "<p>Teach us something new. Challenge an assumption. Point us toward a problem we have missed.</p>",
+            "button_label": "Send something",
+            "button_link": "/pages/contribute",
+            "color_scheme": "scheme-4"
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "chapter_2",
+        "chapter_3",
+        "chapter_4",
+        "cta_5"
+      ],
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "header",
+    "essay"
+  ]
+}

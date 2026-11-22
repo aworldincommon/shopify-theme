@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Open contribution project",
+        "heading": "",
+        "intro": "<p>World in Common is built in public. You do not need to be part of an organisation, have a platform, or agree with every idea here to contribute.</p>",
+        "show_page_content": true,
+        "emblem": "arch",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "essay": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Send us",
+            "text": "<ul><li>a book, article, essay, or video we should read</li><li>a subject or problem you think we should explore</li><li>a community, project, or organisation we should know about</li><li>a solution that is already working somewhere</li><li>a story or example from your own life</li><li>a T-shirt idea or design you think belongs here</li><li>an open-source tool, project, or collaboration we should feature</li><li>a correction when we have misunderstood something</li></ul><p>Teach us something new. Challenge an assumption. Send us a design. Point us toward a problem we have missed.</p>"
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Built in public",
+            "text": "<p>This is not a finished brand handing down a finished worldview. It is an open contribution project. The more people who add knowledge, criticism, creativity, and lived experience, the more useful it can become.</p>"
+          }
+        },
+        "quote_3": {
+          "type": "quote",
+          "settings": {
+            "text": "Let’s do this together.",
+            "cite": ""
+          }
+        },
+        "chapter_4": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Send something",
+            "text": "<p>Use the contact form and tell us what you are sending and why you think it belongs here.</p><p>For reading recommendations, include the title, author, link, and what you found valuable or challenging. For designs, include a short explanation of the idea and whether you created the work yourself.</p><p>We cannot promise to use or publish everything. We will not claim ownership of your work simply because you send it to us, and we will ask before using a contribution commercially. Please do not send work you do not have permission to share.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "chapter_2",
+        "quote_3",
+        "chapter_4"
+      ],
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 24
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "header",
+    "essay",
+    "form"
+  ]
+}
