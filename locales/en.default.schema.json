@@ -2866,6 +2866,10 @@
         },
         "object_number": { "label": "Object number" },
         "text": { "label": "Text" },
+        "media_position": {
+          "label": "Product image",
+          "info": "Which product image to show, counted from 1. Use the image with the print."
+        },
         "show_price": {
           "label": "Show product price",
           "info": "Only a real Shopify product price is shown. Otherwise the receipt says TBD."

@@ -27,6 +27,12 @@
 
   if has_product
     assign specimen_title = specimen.title
+    # Use the chosen product image, for example the back view with the print. Falls back to the featured image.
+    assign specimen_media = specimen.featured_media
+    assign media_index = section.settings.media_position | minus: 1
+    if media_index > 0 and specimen.media.size > media_index
+      assign specimen_media = specimen.media[media_index]
+    endif
   else
     assign specimen_title = section.settings.title
   endif
@@ -51,11 +57,11 @@
       <h2 class="wic-specimen__title" id="WicSpecimen-{{ section.id }}">{{ specimen_title | escape }}</h2>
 
       <div class="wic-specimen__media">
-        {%- if has_product and specimen.featured_media -%}
-          {%- assign media_alt = specimen.featured_media.alt | default: specimen.title -%}
+        {%- if has_product and specimen_media -%}
+          {%- assign media_alt = specimen_media.alt | default: specimen.title -%}
           <div class="wic-specimen__frame">
             {{
-              specimen.featured_media.preview_image
+              specimen_media.preview_image
               | image_url: width: 1500
               | image_tag:
                 loading: 'lazy',
@@ -176,6 +182,16 @@
       "id": "text",
       "label": "t:sections.wic_product_specimen.settings.text.label",
       "default": "<p>Named for the places where people still sit down together. It is not on sale yet. Before it is, every line of this receipt gets a real number.</p>"
+    },
+    {
+      "type": "range",
+      "id": "media_position",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "t:sections.wic_product_specimen.settings.media_position.label",
+      "info": "t:sections.wic_product_specimen.settings.media_position.info",
+      "default": 1
     },
     {
       "type": "checkbox",
