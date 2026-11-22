@@ -21,8 +21,8 @@
         "line_cost": {
           "type": "line",
           "settings": {
-            "label": "Production cost",
-            "value": "Awaiting real costs",
+            "label": "Production cost (Printful)",
+            "value": "From €26,62, before VAT",
             "emphasis": false
           }
         },
@@ -30,7 +30,7 @@
           "type": "line",
           "settings": {
             "label": "Contribution to the project",
-            "value": "Awaiting real costs",
+            "value": "TBD, awaiting a VAT check",
             "emphasis": false
           }
         },
@@ -55,7 +55,7 @@
         "title": "The People’s Cafe T-Shirt",
         "object_number": "001",
         "text": "<p>Named for the places where people still sit down together. It is not on sale yet. Before it is, every line of this receipt gets a real number.</p>",
-        "show_price": false,
+        "show_price": true,
         "media_position": 4,
         "receipt_heading": "Receipt / Object 001",
         "receipt_footnote": "No numbers until they are real numbers.",

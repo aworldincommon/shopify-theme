@@ -1,0 +1,16 @@
+{%- comment -%}
+  The World in Common lockup: the coin mark next to the store name.
+  Used by the header when no logo image is uploaded in Theme settings > Logo.
+  The coin is decorative here, because the store name next to it is the accessible name of the link.
+{%- endcomment -%}
+<span class="wic-lockup">
+  <img
+    class="wic-lockup__mark"
+    src="{{ 'wic-logo.svg' | asset_url }}"
+    alt=""
+    width="44"
+    height="44"
+    loading="eager"
+  >
+  <span class="wic-lockup__name h2">{{ shop.name }}</span>
+</span>

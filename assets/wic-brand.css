@@ -56,3 +56,24 @@ h2,
     transform: none;
   }
 }
+
+/* Header lockup: the coin mark next to the store name (used when no logo image is uploaded). */
+.wic-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.wic-lockup__mark {
+  display: block;
+  width: 4.4rem;
+  height: 4.4rem;
+  flex: 0 0 auto;
+}
+
+@media screen and (max-width: 749px) {
+  .wic-lockup__mark {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
