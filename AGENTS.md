@@ -5,6 +5,7 @@ This is a standard Shopify Dawn-based theme. Use Shopify Liquid, JSON templates,
 ## Rules
 
 - Read `DESIGN.md` before visual work.
+- Read `WRITING.md` before writing or editing any public copy. Affirm, then invite; never shame the reader.
 - Extend existing Dawn sections where practical; create a custom section when the composition genuinely needs one.
 - Keep merchant-editable copy in section settings or blocks and use translation keys for fixed UI strings.
 - Preserve accessible headings, landmarks, focus states, responsive behavior, and Shopify routes.
