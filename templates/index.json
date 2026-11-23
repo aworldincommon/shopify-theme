@@ -3,7 +3,7 @@
     "masthead": {
       "type": "wic-masthead",
       "settings": {
-        "dateline_left": "Draft edition",
+        "dateline_left": "",
         "dateline_right": "Media / Research / Objects",
         "nameplate": "World in Common",
         "statement": "Building systems that help people belong.",
