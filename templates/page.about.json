@@ -4,8 +4,8 @@
       "type": "wic-page-header",
       "settings": {
         "kicker": "About",
-        "heading": "About World in Common",
-        "intro": "<p>World in Common started as a personal project.</p>",
+        "heading": "A movement built in common",
+        "intro": "<p>You're probably already doing your part: showing up, caring, voting, worrying about where all this is headed. What you're doing matters—and we're building a growing, open movement for everyone ready to take matters into our own hands together.</p>",
         "show_page_content": true,
         "emblem": "arch",
         "color_scheme": "scheme-1",
@@ -19,24 +19,67 @@
         "chapter_1": {
           "type": "chapter",
           "settings": {
-            "heading": "A personal note",
-            "text": "<p>I am passionate about co-living, community, and the question of how people can build a better life together. I am interested not only in the things we disagree about, but in the things we already agree on—and in what we could improve or achieve if we worked from that shared ground.</p><p>I spent much of my career working in technology and was fortunate to build a successful career there. That experience gave me skills, perspective, and enough stability to make more deliberate choices about how I spend my time. I do not see that as a moral achievement, and I know that not everyone has the same options. It would be dishonest to pretend that this project exists outside the economic system it questions.</p><p>What I am trying to do now is redirect more of my effort: away from optimising only for income, and toward making things that help people think, connect, and build. I have wanted to spend time on these questions for a long time. World in Common is one way of finally doing that work in public.</p><p>I would like to do much more than this, but I have to start somewhere. World in Common is a small first step toward the larger things I hope to build around these ideas. For now, I am developing it alongside my work. If it becomes useful, reaches more people, and creates real momentum, I can gradually invest more of my time in it and less in my job.</p><p>I do not want to pretend that impact is guaranteed. I want to let the project earn its next step. As I learn whether these ideas are useful to other people—and whether the project can support itself—I will decide how much further I can take it.</p><p>I am an optimist. Not because I think the world is fine, and not because I believe good intentions are enough. I am optimistic because people are capable of building things that do not exist yet. Communities, tools, places, and ways of living can all be changed.</p><p>I also love streetwear and design. For a long time, I found most printed T-shirts boring. I rarely found something I genuinely wanted to put on my body and walk through the street wearing—something that expressed an idea I actually stood for.</p><p>My visual inspiration comes from many places, including Japanese art and design. I am drawn to its restraint, rhythm, attention to materials, respect for ordinary objects, and ability to communicate a lot without filling every available space. I am not trying to imitate Japanese tradition or use it as decoration. I am interested in learning from those principles and combining them with streetwear, print culture, political graphics, and contemporary design.</p><p>So I started making those things myself.</p><p>The T-shirts are not just merchandise. They are small public statements and pieces of creative expression. They are meant to start conversations, make people laugh, irritate people a little, or help someone recognize an idea they have been carrying around themselves.</p><p>The same is true of the writing, videos, and other projects here. They are ways of exploring questions about money, work, community, technology, belonging, and the systems that shape our lives.</p><p>I do not have a complete blueprint for a better society. I am trying to find the people, ideas, and experiments that can help us build one.</p><p>For me, this is a form of rebellion—but not only rebellion. It is also an act of hope, curiosity, and design.</p>"
+            "heading": "Common ground first",
+            "text": "<p>Left and right are constantly told they are enemies. Yet most people agree on far more than the loudest voices let us see: dignity, belonging, fair work, a livable planet, and a real say in how we live. Most people want human flourishing; they disagree on how and when.</p><p>We're optimists—not because the world is fine, and not because good intentions fix broken systems, but because humans invented these systems and humans can rewrite them.</p>"
           }
         },
-        "quote_2": {
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "One movement, many fronts",
+            "text": "<p>We're looking for actionable solutions sitting in plain sight—high-potential answers that could dramatically improve, or even solve, these problems. We create change by raising awareness of the solutions we should push for and vote for. When the obvious answers are in front of everyone, that visibility creates pressure and makes it much harder for politicians not to act. No magic fixes—let's build together:</p><ul><li><strong>Money someone can watch, freeze, or switch off.</strong> Peer-to-peer money like Bitcoin, keeping cash alive, and legal limits on surveillance and programmable money could help protect us.</li><li><strong>Inflation quietly funding wars and agendas we never voted for.</strong> Money with verifiable rules nobody can print at will, like Bitcoin, could close that blank check.</li><li><strong>Loneliness, rising rent, and living isolated.</strong> Co-living, shared spaces, and pooled resources could help bring community back.</li><li><strong>Draining work that treats us like replaceable parts.</strong> Co-ops, local work, and tools letting small groups rival corporations could make work human-scale.</li><li><strong>Tech owned by a few, shaping what we buy and think.</strong> Open source and AI as a commons could make us less dependent on its owners.</li><li><strong>Showing up and still feeling powerless.</strong> Organized, peaceful collective refusal has won before. Let's learn from history.</li><li><strong>Global inequality divided along borders.</strong> Open tools, money, and knowledge crossing borders could build solidarity, including with the Global South.</li></ul>"
+          }
+        },
+        "quote_3": {
           "type": "quote",
           "settings": {
-            "text": "I want to make things that help people imagine—and maybe practise—other ways of living.",
+            "text": "Use their tools for our benefit.",
             "cite": ""
+          }
+        },
+        "chapter_4": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Flood the internet",
+            "text": "<p>Platforms, algorithms, and AI are routinely used to shape what we buy and what we think. We're not here to fight anyone—we're here to take those tools back and use them openly for people's benefit, using automated pipelines and social media to flood the internet with ideas worth sharing:</p><ul><li><strong>Short films:</strong> sharp, watchable animated stories about underused solutions, concentrated power, and how to push back.</li><li><strong>Long-form videos and deep dives:</strong> longer pieces unpacking how these systems work and what can replace them.</li><li><strong>The Journal:</strong> <a href=\"/blogs/news\">sourced long reads</a> exploring money, work, community, tech, and global solidarity.</li></ul><p>And someday, if we get the funding, we can even use targeted reach: the same precision used to sell us things, put to work for ideas worth sharing.</p>"
+          }
+        },
+        "chapter_5": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Open by default",
+            "text": "<p>Trust is earned in the open. World in Common is open source and built in public so anyone can inspect the work and take part. We publish every expense since day 0 in our <a href=\"/pages/transparency-ledger\">transparency ledger</a> and explain where and why we use automation in <a href=\"/pages/how-we-use-ai\">how we use AI</a>.</p><p>We don't have all the answers, and we say so. We're learning in public alongside everyone working toward a fairer world.</p>"
+          }
+        },
+        "chapter_6": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Built with you",
+            "text": "<p>A movement this big only works if we build it together. Send us personal stories, problems we should cover, video ideas, designs, or honest feedback on our <a href=\"/pages/contribute\">contribute page</a>. And whenever a film or post hits home, watching it to the end, liking, following, and sharing are how the message travels through the algorithms to reach the next person.</p>"
+          }
+        },
+        "cta_7": {
+          "type": "cta",
+          "settings": {
+            "heading": "Revolt peacefully. Build boldly.",
+            "text": "<p>If you're exhausted by broken systems running on autopilot, you're in the right place. Learn how to stop this, bring your ideas or your questions, and let's build what comes next together.</p>",
+            "button_label": "Join the cause",
+            "button_link": "/pages/contribute",
+            "color_scheme": "scheme-1"
           }
         }
       },
       "block_order": [
         "chapter_1",
-        "quote_2"
+        "chapter_2",
+        "quote_3",
+        "chapter_4",
+        "chapter_5",
+        "chapter_6",
+        "cta_7"
       ],
       "settings": {
-        "numbered": false,
+        "numbered": true,
         "number_start": 1,
         "color_scheme": "scheme-1",
         "padding_top": 16,
