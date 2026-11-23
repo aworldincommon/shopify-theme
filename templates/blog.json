@@ -3,7 +3,7 @@
     "header": {
       "type": "wic-page-header",
       "settings": {
-        "kicker": "Journal",
+        "kicker": "Long reads, sources linked",
         "heading": "Journal",
         "intro": "<p>The long answers behind our videos. Sources linked, arguments open to challenge. Read, share, and tell us what we missed.</p>",
         "show_page_content": false,

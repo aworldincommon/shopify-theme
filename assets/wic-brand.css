@@ -117,3 +117,9 @@ h2,
 .article-card__title {
   text-transform: uppercase;
 }
+
+/* The Journal page header already carries the h1; hide Dawn's duplicate blog title. */
+.wic-page-header ~ .shopify-section .main-blog > .title--primary,
+.shopify-section:has(.wic-page-header) + .shopify-section .main-blog > .title--primary {
+  display: none;
+}
