@@ -77,3 +77,43 @@ h2,
     height: 3.6rem;
   }
 }
+
+
+/* Journal articles: editorial measure, burgundy links, pull-quote blockquotes. */
+.article-template__content {
+  font-size: 1.8rem;
+  line-height: 1.65;
+}
+
+.article-template__content h2 {
+  margin-top: 4.8rem;
+  padding-top: 1.6rem;
+  border-top: 0.3rem solid rgb(17, 17, 17);
+}
+
+.article-template__content h3 {
+  margin-top: 3.2rem;
+}
+
+.article-template__content a {
+  color: rgb(var(--wic-burgundy));
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.3rem;
+}
+
+.article-template__content blockquote {
+  margin: 3.2rem 0;
+  padding: 0.4rem 0 0.4rem 2rem;
+  border-left: 0.5rem solid rgb(var(--wic-burgundy));
+  font-size: 2.2rem;
+  line-height: 1.4;
+  font-style: normal;
+}
+
+.article-template__content ul li {
+  margin-bottom: 0.8rem;
+}
+
+.article-card__title {
+  text-transform: uppercase;
+}
