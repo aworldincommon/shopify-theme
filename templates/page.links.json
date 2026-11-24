@@ -1,0 +1,90 @@
+{
+  "layout": "links",
+  "sections": {
+    "main": {
+      "type": "wic-links",
+      "blocks": {
+        "latest": {
+          "type": "link",
+          "settings": {
+            "kicker": "From the Journal",
+            "label": "Why would anyone switch off your money?",
+            "note": "The story behind Declined, sources linked.",
+            "url": "/blogs/news/why-would-anyone-switch-off-your-money",
+            "featured": true
+          }
+        },
+        "volunteer": {
+          "type": "link",
+          "settings": {
+            "kicker": "Join us",
+            "label": "Volunteer",
+            "note": "Moderators, designers, writers, researchers and more.",
+            "url": "/pages/volunteer",
+            "featured": false
+          }
+        },
+        "manifesto": {
+          "type": "link",
+          "settings": {
+            "kicker": "",
+            "label": "Read the manifesto",
+            "note": "What we believe and why.",
+            "url": "/pages/manifesto",
+            "featured": false
+          }
+        },
+        "about": {
+          "type": "link",
+          "settings": {
+            "kicker": "",
+            "label": "Who we are",
+            "note": "",
+            "url": "/pages/about",
+            "featured": false
+          }
+        },
+        "journal": {
+          "type": "link",
+          "settings": {
+            "kicker": "",
+            "label": "Journal",
+            "note": "Long reads, sources linked.",
+            "url": "/blogs/news",
+            "featured": false
+          }
+        },
+        "contribute": {
+          "type": "link",
+          "settings": {
+            "kicker": "",
+            "label": "Contribute",
+            "note": "",
+            "url": "/pages/contribute",
+            "featured": false
+          }
+        },
+        "yt": {
+          "type": "social",
+          "settings": { "platform": "youtube", "url": "https://www.youtube.com/@worldincommon-d6v" }
+        },
+        "tt": {
+          "type": "social",
+          "settings": { "platform": "tiktok", "url": "https://www.tiktok.com/@worldincommon" }
+        },
+        "ig": {
+          "type": "social",
+          "settings": { "platform": "instagram", "url": "https://www.instagram.com/worldincommon_/" }
+        }
+      },
+      "block_order": ["latest", "volunteer", "manifesto", "about", "journal", "contribute", "yt", "tt", "ig"],
+      "settings": {
+        "title": "World in Common",
+        "tagline": "Human-scale life. Global solidarity. The commons belong to us. Join the cause.",
+        "utm_source": "linkinbio",
+        "social_label": "Follow us"
+      }
+    }
+  },
+  "order": ["main"]
+}
