@@ -187,7 +187,10 @@
 
 .wic-volunteer__select {
   appearance: auto;
-  padding-top: 2rem;
+  min-height: 5.6rem;
+  padding-top: 2.2rem;
+  padding-bottom: 0.6rem;
+  line-height: 1.4;
 }
 
 .wic-volunteer__select-label {
