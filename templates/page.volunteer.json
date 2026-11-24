@@ -1,0 +1,175 @@
+{
+  "sections": {
+    "header": {
+      "type": "wic-page-header",
+      "settings": {
+        "kicker": "Volunteer",
+        "heading": "Build this movement with us",
+        "intro": "<p>You're already paying attention, caring, and looking for real answers—now let's put that energy to work together. Wherever you live and wherever you sit politically, if you want to rewrite broken systems, join us.</p>",
+        "show_page_content": false,
+        "emblem": "none",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 32
+      }
+    },
+    "why": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Algorithms need humans",
+            "text": "<p>We use their tools for our benefit: automation, AI, and social feeds to flood the internet with underused solutions. Systems designed to sell us things can spread ideas worth acting on instead. Tools give us reach, though—people give this movement a pulse. We need human editors, fact-checkers, artists, and sharp minds to keep our short films, our <a href=\"/blogs/news\">Journal</a>, and our open-source work honest, grounded, and impossible to ignore. We don't have all the answers, and we're not waiting on institutions to hand them over. Let's build this together.</p>"
+          }
+        },
+        "quote_2": {
+          "type": "quote",
+          "settings": {
+            "text": "Use their tools for our benefit.",
+            "cite": ""
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "quote_2"
+      ],
+      "settings": {
+        "numbered": false,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 8,
+        "padding_bottom": 24
+      }
+    },
+    "roles": {
+      "type": "wic-roles",
+      "blocks": {
+        "role_1": {
+          "type": "role",
+          "settings": {
+            "title": "Content moderators",
+            "what": "Keep our TikTok, Instagram, and YouTube comment sections respectful, flag misinformation, and surface sharp questions or story ideas.",
+            "good_for": "People who read the comments anyway and know how to de-escalate without losing their humor."
+          }
+        },
+        "role_2": {
+          "type": "role",
+          "settings": {
+            "title": "Designers",
+            "what": "Create magazine cut-out collages, video thumbnails, Journal covers, streetwear graphics, and visual assets for the movement.",
+            "good_for": "Graphic designers, illustrators, and collage artists who love tactile, bold visual storytelling."
+          }
+        },
+        "role_3": {
+          "type": "role",
+          "settings": {
+            "title": "Writers",
+            "what": "Human-edit AI-assisted scripts, draft sourced Journal essays, and write sharp social captions in our voice.",
+            "good_for": "Plain-spoken writers who care about accuracy, hate jargon, and turn dense ideas into clear stories."
+          }
+        },
+        "role_4": {
+          "type": "role",
+          "settings": {
+            "title": "Researchers & fact-checkers",
+            "what": "Verify every claim in our films and essays against primary sources and help uncover practical solutions sitting in plain sight.",
+            "good_for": "Detail-obsessed readers, students, and researchers who always check the footnotes."
+          }
+        },
+        "role_5": {
+          "type": "role",
+          "settings": {
+            "title": "Video & animation",
+            "what": "Bring our magazine cut-out short films to life through motion, sound design, and HTML/HyperFrames builds.",
+            "good_for": "Animators, motion designers, sound tinkerers, and creative coders."
+          }
+        },
+        "role_6": {
+          "type": "role",
+          "settings": {
+            "title": "Developers",
+            "what": "Improve our Shopify theme, maintain our open-source tools, and sharpen the automation pipelines behind our publishing.",
+            "good_for": "Web developers and automation builders who like working in public."
+          }
+        },
+        "role_7": {
+          "type": "role",
+          "settings": {
+            "title": "Community & outreach",
+            "what": "Connect with people online and in Lisbon, share our work thoughtfully, and help turn viewers into active contributors.",
+            "good_for": "Organizers, connectors, and friendly humans who like bringing people together."
+          }
+        }
+      },
+      "block_order": [
+        "role_1",
+        "role_2",
+        "role_3",
+        "role_4",
+        "role_5",
+        "role_6",
+        "role_7"
+      ],
+      "settings": {
+        "kicker": "Where you fit",
+        "heading": "Roles we're looking for",
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 56
+      }
+    },
+    "how": {
+      "type": "wic-essay",
+      "blocks": {
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "How it works",
+            "text": "<p>Everything we build is open source and in public—see our <a href=\"/pages/transparency-ledger\">transparency ledger</a> and <a href=\"/pages/how-we-use-ai\">how we use AI</a>. Getting involved is simple:</p><ul><li><strong>Say hello:</strong> Fill in the form below and tell us how you'd like to help.</li><li><strong>Start with one task:</strong> We reply and pick a single concrete task together.</li><li><strong>Work remotely, on your time:</strong> Give a few hours whenever you can—no fixed schedule.</li><li><strong>Keep your credit:</strong> We credit you with permission and never claim ownership of your work.</li></ul>"
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "The honest version",
+            "text": "<p>Let's be plain: volunteering here is unpaid. We're not going to pretend otherwise or guilt-trip anyone into burning out. There's no minimum commitment, no pressure, and you can pause or step away whenever life demands it. As for your details, we only use what you send in the form to reply to you—never to spam, sell, or track you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "chapter_1",
+        "chapter_2"
+      ],
+      "settings": {
+        "numbered": true,
+        "number_start": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 8
+      }
+    },
+    "form": {
+      "type": "wic-volunteer-form",
+      "settings": {
+        "heading": "Join us",
+        "intro": "<p>Tell us what you're good at, what you'd like to try, and how to reach you—we'll take it from there.</p>",
+        "roles": "Content moderators\nDesigners\nWriters\nResearchers & fact-checkers\nVideo & animation\nDevelopers\nCommunity & outreach\nSomething else",
+        "consent_text": "We'll only use these details to reply to you about volunteering. We never sell or share them.",
+        "button_label": "Join us",
+        "success_text": "<p>Thank you. We read every message and we'll reply as soon as we can to pick a first task together. Meanwhile, follow us and read the <a href=\"/blogs/news\">Journal</a>.</p>",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "header",
+    "why",
+    "roles",
+    "how",
+    "form"
+  ]
+}

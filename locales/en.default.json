@@ -318,7 +318,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
@@ -420,6 +419,22 @@
       "min_error": "This item has a minimum of {{ min }}",
       "max_error": "This item has a maximum of {{ max }}",
       "step_error": "You can only add this item in increments of {{ step }}"
+    },
+    "wic_volunteer": {
+      "good_for": "Good for",
+      "pick_role": "I'm in →",
+      "received": "Received",
+      "name": "Name",
+      "roles_legend": "What would you like to help with?",
+      "where": "Where are you based? (city or country)",
+      "links": "Portfolio, work or social links (optional)",
+      "time": "How much time could you give?",
+      "time_pick": "Choose one (optional)",
+      "time_1": "A few hours a month",
+      "time_2": "A few hours a week",
+      "time_3": "One-off project",
+      "time_4": "Not sure yet",
+      "message": "Tell us a bit about you and what you'd like to do"
     }
   },
   "localization": {

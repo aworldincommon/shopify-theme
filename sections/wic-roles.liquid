@@ -1,0 +1,153 @@
+{{ 'section-wic-editorial.css' | asset_url | stylesheet_tag }}
+{{ 'section-wic-volunteer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+  Volunteer roles as a numbered roster, like a printed call-sheet.
+  Each "I'm in" button ticks the matching role in the volunteer form section and scrolls to it.
+{%- endcomment -%}
+<div class="wic-roles color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="wic-roles__head wic-top-rule">
+      {%- if section.settings.kicker != blank -%}
+        <p class="wic-roles__kicker wic-mono wic-accent-burgundy">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wic-roles__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+    <ol class="wic-roles__list" role="list">
+      {%- for block in section.blocks -%}
+        {%- assign role_slug = block.settings.title | handleize -%}
+        <li class="wic-roles__item" {{ block.shopify_attributes }}>
+          <p class="wic-roles__number wic-mono" aria-hidden="true">
+            {%- if forloop.index < 10 %}0{% endif %}{{ forloop.index -}}
+          </p>
+          <h3 class="wic-roles__title">{{ block.settings.title | escape }}</h3>
+          {%- if block.settings.what != blank -%}
+            <p class="wic-roles__what">{{ block.settings.what | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.good_for != blank -%}
+            <p class="wic-roles__good-for">
+              <span class="wic-mono wic-accent-army">{{ 'sections.wic_volunteer.good_for' | t }}</span>
+              {{ block.settings.good_for | escape }}
+            </p>
+          {%- endif -%}
+          <a
+            class="wic-roles__pick link"
+            href="#VolunteerForm"
+            data-wic-role="{{ role_slug }}"
+          >
+            {{- 'sections.wic_volunteer.pick_role' | t -}}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</div>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-wic-role]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var box = document.querySelector('input[data-wic-role-box="' + link.dataset.wicRole + '"]');
+        if (box) box.checked = true;
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.wic_roles.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "t:sections.wic_roles.settings.kicker.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.wic_roles.settings.heading.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "role",
+      "name": "t:sections.wic_roles.blocks.role.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.wic_roles.blocks.role.settings.title.label"
+        },
+        {
+          "type": "textarea",
+          "id": "what",
+          "label": "t:sections.wic_roles.blocks.role.settings.what.label"
+        },
+        {
+          "type": "textarea",
+          "id": "good_for",
+          "label": "t:sections.wic_roles.blocks.role.settings.good_for.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wic_roles.name",
+      "blocks": [{ "type": "role" }, { "type": "role" }, { "type": "role" }]
+    }
+  ]
+}
+{% endschema %}

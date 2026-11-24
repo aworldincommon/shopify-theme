@@ -1,0 +1,240 @@
+/*
+  World in Common: volunteer page (roles roster + sign-up form).
+  Roster reads like a printed call-sheet: numbered rows, hard rules, Anton titles.
+  Note: Dawn sets 1rem = 10px.
+*/
+
+/* ---------- Roles roster ---------- */
+.wic-roles__head {
+  padding-top: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.wic-roles__kicker {
+  margin: 0 0 0.8rem;
+}
+
+.wic-roles__heading {
+  margin: 0;
+  font-size: clamp(3.4rem, 6vw, 6.4rem);
+  line-height: 0.95;
+}
+
+.wic-roles__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 0.3rem solid currentColor;
+}
+
+@media screen and (min-width: 750px) {
+  .wic-roles__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 4.8rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .wic-roles__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.wic-roles__item {
+  position: relative;
+  padding: 2.4rem 0 2.8rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.wic-roles__number {
+  margin: 0;
+  color: rgb(var(--wic-burgundy));
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+}
+
+.wic-roles__title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 3vw, 3.2rem);
+  line-height: 1;
+}
+
+.wic-roles__what {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.wic-roles__good-for {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.wic-roles__good-for .wic-mono {
+  display: block;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.wic-roles__pick {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  min-height: 4.4rem;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgb(var(--wic-burgundy));
+  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.4rem;
+}
+
+.color-scheme-3 .wic-roles__pick,
+.color-scheme-4 .wic-roles__pick,
+.color-scheme-5 .wic-roles__pick,
+.color-scheme-3 .wic-roles__number,
+.color-scheme-4 .wic-roles__number,
+.color-scheme-5 .wic-roles__number {
+  color: inherit;
+}
+
+/* ---------- Sign-up form ---------- */
+.wic-volunteer {
+  scroll-margin-top: 8rem;
+}
+
+.wic-volunteer__head {
+  padding-top: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.wic-volunteer__heading {
+  margin: 0 0 1.2rem;
+  font-size: clamp(3.4rem, 6vw, 5.6rem);
+  line-height: 0.95;
+}
+
+.wic-volunteer__intro {
+  font-size: 1.7rem;
+}
+
+.wic-volunteer__roles {
+  border: 0;
+  margin: 2.4rem 0 1.6rem;
+  padding: 0;
+}
+
+.wic-volunteer__legend {
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  padding: 0;
+}
+
+.wic-volunteer__role-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.wic-volunteer__chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.wic-volunteer__chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.wic-volunteer__chip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 0.8rem 1.6rem;
+  border: 0.2rem solid rgb(var(--color-foreground));
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+}
+
+.wic-volunteer__chip input:checked + span {
+  background: rgb(var(--wic-burgundy));
+  border-color: rgb(var(--wic-burgundy));
+  color: #f4f0e8;
+  box-shadow: 0.3rem 0.3rem 0 rgb(17, 17, 17);
+  transform: translate(-0.1rem, -0.1rem);
+}
+
+.wic-volunteer__chip input:focus-visible + span {
+  outline: 0.2rem solid rgb(var(--wic-burgundy));
+  outline-offset: 0.3rem;
+}
+
+.wic-volunteer__select {
+  appearance: auto;
+  padding-top: 2rem;
+}
+
+.wic-volunteer__select-label {
+  top: 0.6rem;
+  font-size: 1rem;
+  left: calc(var(--inputs-border-width) + 2rem);
+  letter-spacing: 0.04rem;
+}
+
+.wic-volunteer__consent {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 1.6rem 0 2.4rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.wic-volunteer__consent input {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.1rem;
+  accent-color: rgb(var(--wic-burgundy));
+  flex: 0 0 auto;
+}
+
+.wic-volunteer__success {
+  padding: 3.2rem 0;
+}
+
+.wic-volunteer__stamp {
+  display: inline-block;
+  margin: 0 0 1.6rem;
+  padding: 0.6rem 1.2rem;
+  border: 0.3rem solid rgb(var(--wic-burgundy));
+  color: rgb(var(--wic-burgundy));
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transform: rotate(-3deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wic-volunteer__chip span {
+    transition: none;
+  }
+  .wic-volunteer__chip input:checked + span {
+    transform: none;
+  }
+}
