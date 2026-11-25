@@ -44,16 +44,6 @@
             "featured": false
           }
         },
-        "contribute": {
-          "type": "link",
-          "settings": {
-            "kicker": "",
-            "label": "Contribute",
-            "note": "",
-            "url": "/pages/contribute",
-            "featured": false
-          }
-        },
         "yt": {
           "type": "social",
           "settings": {
@@ -74,14 +64,24 @@
             "platform": "instagram",
             "url": "https://www.instagram.com/worldincommon_/"
           }
+        },
+        "volunteer": {
+          "type": "link",
+          "settings": {
+            "kicker": "",
+            "label": "Volunteer",
+            "note": "Review videos, pitch ideas, give design feedback.",
+            "url": "/pages/volunteer",
+            "featured": false
+          }
         }
       },
       "block_order": [
         "latest",
-        "manifesto",
         "about",
+        "manifesto",
+        "volunteer",
         "journal",
-        "contribute",
         "yt",
         "tt",
         "ig"

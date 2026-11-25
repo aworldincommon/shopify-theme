@@ -111,39 +111,6 @@
         </fieldset>
 
         <div class="field">
-          <input
-            class="field__input"
-            type="text"
-            id="WicVolunteer-where"
-            name="contact[Where are you based]"
-            placeholder="{{ 'sections.wic_volunteer.where' | t }}"
-          >
-          <label class="field__label" for="WicVolunteer-where">{{ 'sections.wic_volunteer.where' | t }}</label>
-        </div>
-
-        <div class="field">
-          <input
-            class="field__input"
-            type="text"
-            id="WicVolunteer-links"
-            name="contact[Portfolio or links]"
-            placeholder="{{ 'sections.wic_volunteer.links' | t }}"
-          >
-          <label class="field__label" for="WicVolunteer-links">{{ 'sections.wic_volunteer.links' | t }}</label>
-        </div>
-
-        <div class="field">
-          <select class="field__input wic-volunteer__select" id="WicVolunteer-time" name="contact[Time]">
-            <option value="">{{ 'sections.wic_volunteer.time_pick' | t }}</option>
-            <option>{{ 'sections.wic_volunteer.time_1' | t }}</option>
-            <option>{{ 'sections.wic_volunteer.time_2' | t }}</option>
-            <option>{{ 'sections.wic_volunteer.time_3' | t }}</option>
-            <option>{{ 'sections.wic_volunteer.time_4' | t }}</option>
-          </select>
-          <label class="field__label wic-volunteer__select-label" for="WicVolunteer-time">{{ 'sections.wic_volunteer.time' | t }}</label>
-        </div>
-
-        <div class="field">
           <textarea
             rows="6"
             id="WicVolunteer-body"
@@ -155,11 +122,6 @@
           </textarea>
           <label class="form__label field__label" for="WicVolunteer-body">{{ 'sections.wic_volunteer.message' | t }}</label>
         </div>
-
-        <label class="wic-volunteer__consent" for="WicVolunteer-consent">
-          <input type="checkbox" id="WicVolunteer-consent" name="contact[Consent]" value="yes" required>
-          <span>{{ section.settings.consent_text | escape }}</span>
-        </label>
 
         <div class="contact__button">
           <button type="submit" class="button button--primary">{{ section.settings.button_label | escape }}</button>
